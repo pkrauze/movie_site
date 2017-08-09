@@ -1,7 +1,7 @@
-<%= form_for(@director) do |f| %>
-  <% if @director.errors.any? %>
+<%= form_for(@) do |f| %>
+  <% if director.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@director.errors.count, "error") %> prohibited this director from being saved:</h2>
+      <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
 
       <ul>
       <% @director.errors.full_messages.each do |message| %>
