@@ -28,7 +28,7 @@ class MoviesController < ApplicationController
   def create
 
     respond_to do |format|
-      if CreateMovie.new(movie_params).save
+      if Movies::CreateMovie.new(movie_params).call
         format.html { redirect_to root_path, notice: 'Movie was successfully created.' }
         format.json { render :show, status: :created, location: @movie }
       else
@@ -42,7 +42,7 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1.json
   def update
     respond_to do |format|
-      if UpdateMovie.new(params[:id],movie_params).call
+      if Movies::UpdateMovie.new(params[:id],movie_params).call
         format.html { redirect_to root_path, notice: 'Movie was successfully updated.' }
         format.json { render :show, status: :ok, location: @movie }
       else
