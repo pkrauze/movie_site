@@ -27,6 +27,8 @@ gem 'pg'
 gem 'decent_exposure', '3.0.0'
 gem 'carrierwave'
 gem "mini_magick"
+
+gem "rspec"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
