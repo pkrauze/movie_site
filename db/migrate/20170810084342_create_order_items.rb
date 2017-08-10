@@ -3,8 +3,7 @@ class CreateOrderItems < ActiveRecord::Migration
     create_table :order_items do |t|
       t.references :product, index: true, foreign_key: true
       t.references :order, index: true, foreign_key: true
-      t.decimal12 :total_price
-      t.decimal3 :total_price
+      t.decimal :total_price, :precision => 8, :scale => 2
 
       t.timestamps null: false
     end

@@ -1,8 +1,7 @@
 class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
-      t.decimal12 :total
-      t.decimal3 :total
+      t.decimal :total, :precision => 8, :scale => 2
       t.references :order_status, index: true, foreign_key: true
 
       t.timestamps null: false
