@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  
+  resources :movies
   resources :directors
-  resources :cart, only: [:show]
+
+  resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
