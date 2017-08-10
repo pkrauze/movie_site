@@ -4,4 +4,5 @@ class Movie < ActiveRecord::Base
     
 
     belongs_to :director
+    has_many :order_items
 end
