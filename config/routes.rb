@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  resources :movies
+  resources :movies do
+    resources :comments
+  end
+  
+  resources :comments do
+    resources :comments
+  end
+  
   resources :directors
 
   resource :cart, only: [:show]
