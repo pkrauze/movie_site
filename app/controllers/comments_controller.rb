@@ -22,4 +22,5 @@ class CommentsController < ApplicationController
   def find_commentable
     @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
     @commentable = Movie.find_by_id(params[:movie_id]) if params[:movie_id]
+  end
 end
