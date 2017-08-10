@@ -60,6 +60,19 @@ class MoviesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def add_to_cart
+    if session[:movie_id].blank?
+      cart = Cart.create(status: "pending")
+      session[:movie_id] = movie.id
+    else
+      cart = Cart.find(session[:cart_id])
+    end
+    
+    movie = Movie.find(params[:id])
+    cart.cartships.create(movie_id: movie.id)
+    redirect_to cart
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
