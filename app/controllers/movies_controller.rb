@@ -5,6 +5,7 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @movies = Movie.all
+    @order_item = current_order.order_items.new
   end
 
   # GET /movies/1
