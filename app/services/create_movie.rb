@@ -5,12 +5,6 @@ class CreateMovie
     end
     
     def save
-        @movie = Movie.new(@params)
-        
-        if @movie.save
-            true
-        else
-            false
-        end
+        Movie.new(@params).save
     end
 end
