@@ -1,8 +1,8 @@
 class OrderItem < ActiveRecord::Base
-  belongs_to :product
+  belongs_to :movie
   belongs_to :order
   
-  validate :product_present
+  validate :movie_present
   validate :order_present
   
   before_save :finalize
@@ -21,15 +21,15 @@ class OrderItem < ActiveRecord::Base
   
 private
 
-  def product_present
-    if product.nil?
-      flash[:error] = "Product is not valid or active"
+  def movie_present
+    if movie.nil?
+      false
     end
   end
   
   def order_present
     if order.nil?
-      flash[:error] = "Order is not valid"
+      false
     end
   end
   
