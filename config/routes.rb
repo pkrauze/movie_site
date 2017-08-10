@@ -1,21 +1,8 @@
 Rails.application.routes.draw do
-  get 'order_items/create'
-
-  get 'order_items/update'
-
-  get 'order_items/destroy'
-
-  get 'carts/show'
-
-  resources :directors
-  resources :carts
   
-  get 'sessions/:locale', to: "sessions#switch", as: :sessions
-  resources :movies do
-    member do
-      get :add_to_cart
-    end
-  end
+  resources :directors
+  resources :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
