@@ -3,8 +3,12 @@
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
 
   <%= form_for [comment, Comment.new] do |f| %>
+      <% if user_signed_in? %>
       <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
       <%= f.submit "Reply"  %>
+<% else %>
+Log in to add comments
+<% end %>
       <% end %>
 
   <ul>
