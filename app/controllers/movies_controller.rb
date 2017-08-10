@@ -55,7 +55,7 @@ class MoviesController < ApplicationController
   # DELETE /movies/1
   # DELETE /movies/1.json
   def destroy
-   Movies::DestroyMovie.new(params[:id]).call
+   Movies::DeleteMovie.new(params[:id]).call
     respond_to do |format|
       format.html { redirect_to movies_url, notice: 'Movie was successfully destroyed.' }
       format.json { head :no_content }
