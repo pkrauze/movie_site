@@ -22,14 +22,12 @@ class OrderItem < ActiveRecord::Base
 private
 
   def movie_present
-    if movie.nil?
-      false
+    if movie.present?
     end
   end
   
   def order_present
-    if order.nil?
-      false
+    if order.present?
     end
   end
   

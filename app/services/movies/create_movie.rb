@@ -1,6 +1,5 @@
 module Movies
     class CreateMovie
-    
         def initialize(params)
             @params = params
         end
