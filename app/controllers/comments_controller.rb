@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :find_commentable
+  
   def new
     @comment = Comment.new
   end
