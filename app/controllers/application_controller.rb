@@ -13,8 +13,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  
-  def current_user
-      @current_user ||= ( User.find_by(id: session[:user_id]) || Guest.new)
+  def current_user 
+    if devise_controller? 
+      @current_user = super 
+    else 
+      @current_user ||= super || Guest.new     
+    end 
   end
+  
 end
