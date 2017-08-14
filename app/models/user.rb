@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  has_many :subscribeds
+  has_many :subscribers
   
   rolify
   # Include default devise modules. Others available are:
