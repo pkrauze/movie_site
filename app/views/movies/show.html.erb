@@ -45,6 +45,7 @@
 
 
 <h3>Comments</h3>
+
 <%= form_for [@movie, Comment.new] do |f| %>
 <% if user_signed_in? %>
 <%= f.text_area :body, placeholder: "Add a comment" %><br/>

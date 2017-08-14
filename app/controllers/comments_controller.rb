@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_commentable
-before_action :authenticate_user!
+  before_action :authenticate_user!
   def new
     @comment = Comment.new
   end
@@ -14,6 +14,7 @@ before_action :authenticate_user!
         redirect_to :back, notice: "Your comment wasn't posted!"
     end
   end
+  
   
   private
   
