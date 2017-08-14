@@ -1,6 +1,6 @@
-class CreateSubscribeds < ActiveRecord::Migration
+class CreateSubscribers < ActiveRecord::Migration
   def change
-    create_table :subscribeds do |t|
+    create_table :subscribers do |t|
       t.references :user, index: true, foreign_key: true
       t.references :director, index: true, foreign_key: true
 

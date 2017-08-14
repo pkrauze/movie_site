@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'subscribers/index'
+
+  get 'subscribers/create'
+
+  get 'subscribers/destroy'
+
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
   get 'comments/new'

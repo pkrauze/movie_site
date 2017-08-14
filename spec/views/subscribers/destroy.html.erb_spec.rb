@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-RSpec.describe Subscribed, type: :model do
+RSpec.describe "subscribers/destroy.html.erb", type: :view do
   pending "add some examples to (or delete) #{__FILE__}"
 end

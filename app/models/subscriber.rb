@@ -1,4 +1,4 @@
-class Subscribed < ActiveRecord::Base
+class Subscriber < ActiveRecord::Base
   belongs_to :user
   belongs_to :director
 end
