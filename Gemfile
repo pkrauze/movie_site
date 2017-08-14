@@ -31,7 +31,7 @@ gem 'devise'
 gem 'ratyrate'
 gem 'rolify'
 gem 'cancancan'
-
+gem "haml"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
