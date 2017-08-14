@@ -1,11 +1,12 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: [:show, :edit, :update, :destroy]
+  expose :movie
+  expose :movies, -> { Movie.all }
+  
   before_action :authenticate_user!
   
   # GET /movies
   # GET /movies.json
   def index
-    @movies = Movie.all
     @order_item = current_order.order_items.new
   end
 
@@ -16,7 +17,6 @@ class MoviesController < ApplicationController
 
   # GET /movies/new
   def new
-    @movie = Movie.new
   end
 
   # GET /movies/1/edit
@@ -30,10 +30,10 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if Movies::CreateMovie.new(movie_params).call
         format.html { redirect_to root_path, notice: 'Movie was successfully created.' }
-        format.json { render :show, status: :created, location: @movie }
+        format.json { render :show, status: :created, location: movie }
       else
         format.html { render :new }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+        format.json { render json: movie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -44,10 +44,10 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if Movies::UpdateMovie.new(params[:id],movie_params).call
         format.html { redirect_to root_path, notice: 'Movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @movie }
+        format.json { render :show, status: :ok, location: movie }
       else
         format.html { render :edit }
-        format.json { render json: @movie.errors, status: :unprocessable_entity }
+        format.json { render json: movie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -64,11 +64,6 @@ class MoviesController < ApplicationController
   
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_movie
-      @movie = Movie.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
       params.require(:movie).permit(:title, :desc, :year, :time, :cover, :price)

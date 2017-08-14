@@ -1,52 +1,52 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag @movie.cover.url %>
+  <%= image_tag movie.cover.url %>
 </p>
 
 <p>
   <strong>Title:</strong>
-  <%= @movie.title %>
+  <%= movie.title %>
 </p>
 
 <p>
   <strong>Desc:</strong>
-  <%= @movie.desc %>
+  <%= movie.desc %>
 </p>
 
 <p>
   <strong>Year:</strong>
-  <%= @movie.year %>
+  <%= movie.year %>
 </p>
 
 <p>
   <strong>Time:</strong>
-  <%= @movie.time %>
+  <%= movie.time %>
 </p>
 
 <div class="row">
 
   <div class="small-2 large-4 columns">
     <% if current_user %>
-      Visual Effects: <%= rating_for @movie, "visual_effects" %>
+      Visual Effects: <%= rating_for movie, "visual_effects" %>
       <br>
-      Original Score: <%= rating_for @movie, "original_score" %>
+      Original Score: <%= rating_for movie, "original_score" %>
       <br>
-      Director: <%= rating_for @movie, "original_score" %>
+      Director: <%= rating_for movie, "original_score" %>
       <br>
-      Custome Design: <%= rating_for @movie, "custome_design" %>
+      Custome Design: <%= rating_for movie, "custome_design" %>
     <% end %>
   </div>
 </div>
 
-<%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit', edit_movie_path(movie) %> |
 <%= link_to 'Back', movies_path %>
 
 
 <h3>Comments</h3>
 
-<%= form_for [@movie, Comment.new] do |f| %>
+<%= form_for [movie, Comment.new] do |f| %>
 <% if user_signed_in? %>
 <%= f.text_area :body, placeholder: "Add a comment" %><br/>
 <%= f.submit "Add Comment" %>
@@ -56,5 +56,5 @@ Log in to add comments
 <% end %>
 
 <ul>
-  <%= render(partial: 'comments/comment', collection: @movie.comments) %>
+  <%= render(partial: 'comments/comment', collection: movie.comments) %>
 </ul>

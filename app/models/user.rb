@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   
   has_many :subscribers
+  has_many :notifications
   
   rolify
   # Include default devise modules. Others available are:

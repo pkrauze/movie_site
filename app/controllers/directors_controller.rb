@@ -1,7 +1,7 @@
 class DirectorsController < ApplicationController
   
   expose :director
-  expose :directors, ->{ Director.all }
+  expose :directors, ->{ Director.all.decorate }
   
   # GET /directors
   # GET /directors.json
