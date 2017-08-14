@@ -1,0 +1,4 @@
+%h1 Notifications
+
+- @notifications.each do |n|
+  %p There is a #{n.notification_type} with name #{n.movie.title} created by #{n.director.fullname}

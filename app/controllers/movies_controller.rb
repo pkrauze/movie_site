@@ -32,7 +32,7 @@ class MoviesController < ApplicationController
         format.html { redirect_to root_path, notice: 'Movie was successfully created.' }
         format.json { render :show, status: :created, location: movie }
       else
-        format.html { render :new }
+        format.html { render :new, notice: 'Movie was not created' }
         format.json { render json: movie.errors, status: :unprocessable_entity }
       end
     end
@@ -66,6 +66,6 @@ class MoviesController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
-      params.require(:movie).permit(:title, :desc, :year, :time, :cover, :price)
+      params.require(:movie).permit(:title, :desc, :year, :time, :cover, :price, :director_id)
     end
 end

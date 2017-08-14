@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814121317) do
+ActiveRecord::Schema.define(version: 20170814153016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,18 @@ ActiveRecord::Schema.define(version: 20170814121317) do
     t.decimal  "price",       precision: 8, scale: 2
     t.json     "cover"
   end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "director_id"
+    t.integer  "movie_id"
+    t.string   "notification_type"
+    t.boolean  "read"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "notifications", ["director_id"], name: "index_notifications_on_director_id", using: :btree
+  add_index "notifications", ["movie_id"], name: "index_notifications_on_movie_id", using: :btree
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "movie_id"
@@ -187,6 +199,8 @@ ActiveRecord::Schema.define(version: 20170814121317) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "notifications", "directors"
+  add_foreign_key "notifications", "movies"
   add_foreign_key "order_items", "movies"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "order_statuses"
