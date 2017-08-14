@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
   
-  resources :subscribers, only: [:index,:create,:destroy]
+  get 'subscribers/index'
+
+  get 'subscribers/subscribe'
+
+  get 'subscribers/unsubscribe'
+
+  resources :subscribers
 
   post '/rate' => 'rater#create', :as => 'rate'
+  
   devise_for :users
+  
   get 'comments/new'
-
   get 'comments/create'
 
   resources :movies do

@@ -13,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @directors.each do |director| %>
+    <% directors.each do |director| %>
       <tr>
         <td><%= director.firstname %></td>
         <td><%= director.lastname %></td>
@@ -21,6 +21,11 @@
         <td><%= link_to 'Show', director %></td>
         <td><%= link_to 'Edit', edit_director_path(director) %></td>
         <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if !sub_exist(current_user.id, director.id) %>
+        <td><%= link_to 'Subscribe', subscribers_subscribe_path %></td>
+        <% else %>
+        <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

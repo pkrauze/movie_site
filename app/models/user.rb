@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
     self
   end
 
+
 end
