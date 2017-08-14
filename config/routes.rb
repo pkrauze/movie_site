@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'subscribers/index'
-
-  get 'subscribers/create'
-
-  get 'subscribers/destroy'
+  
+  resources :subscribers, only: [:index,:create,:destroy]
 
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users
