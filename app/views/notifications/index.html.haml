@@ -1,9 +1,9 @@
 %h1 New Notifications
 
 - @notifications.each do |n|
-  =link_to "There is a #{n.notification_type} with name #{n.movie.title} created by #{n.director.fullname}", link_through_path(n)
+  %li=link_to "There is a #{n.notification_type} with name #{n.movie.title} created by #{n.director.fullname}", link_through_path(n)
   
 %h1 All Notifications
 
 - @allnotifications.each do |n|
-  =link_to "There is a #{n.notification_type} with name #{n.movie.title} created by #{n.director.fullname}", movie_path(n.movie)
+  %li=link_to "There is a #{n.notification_type} with name #{n.movie.title} created by #{n.director.fullname}", movie_path(n.movie)
