@@ -61,8 +61,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     debug_inspector (0.0.3)
-    decent_decoration (0.1.0)
-      decent_exposure (~> 3.0)
     decent_exposure (3.0.0)
       activesupport (>= 4.0)
     devise (4.3.0)
@@ -215,7 +213,6 @@ DEPENDENCIES
   cancancan
   carrierwave
   coffee-rails (~> 4.1.0)
-  decent_decoration
   decent_exposure (= 3.0.0)
   devise
   draper

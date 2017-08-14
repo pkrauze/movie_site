@@ -33,7 +33,6 @@ gem 'rolify'
 gem 'cancancan'
 gem "haml"
 gem "draper"
-gem 'decent_decoration'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
