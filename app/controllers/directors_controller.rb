@@ -64,5 +64,4 @@ class DirectorsController < ApplicationController
   def director_params
     params.require(:director).permit(:firstname,:lastname,:year_of_birth)
   end
-
 end
