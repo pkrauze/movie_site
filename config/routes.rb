@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :genres
   resources :notifications
 
   get 'notifications/:id/link_through', to: 'notifications#link_through',
