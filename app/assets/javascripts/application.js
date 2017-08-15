@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
-//= require cocoon
+//= require multi-select
 //= require turbolinks
 //= require_tree .
