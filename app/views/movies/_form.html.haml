@@ -29,8 +29,13 @@
     
   %div.form-group
     = f.label :director_id
-    = f.collection_select :director_id, Director.all, :id, :firstname
-    
+    = f.collection_select :director_id, Director.all, :id, :firstname    
+
+  = f.nested_fields_for :genres do |builder|
+    = render "genre_fields", :f => builder
+  
+  %a(href="#" class="add") add phone
+
   %div.form-group
     = f.label :cover
     = f.file_field :cover
