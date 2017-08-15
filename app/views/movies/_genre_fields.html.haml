@@ -1,0 +1,5 @@
+  %div.form-group
+    = f.label :genre_id
+    = f.collection_select :genre_id, Genre.all, :id, :name
+    = f.check_box :_destroy
+    = f.label :_destroy, "Remove"

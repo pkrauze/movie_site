@@ -8,4 +8,6 @@ class Movie < ActiveRecord::Base
     has_many :comments, as: :commentable
     has_many :notifications, :dependent => :destroy
     has_and_belongs_to_many :genres
+    
+    accepts_nested_attributes_for :genres, :reject_if => lambda { |a| a[:content].blank? }, :allow_destroy => true
 end
