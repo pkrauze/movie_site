@@ -33,7 +33,7 @@
       = f.collection_select :director_id, Director.all, :id, :firstname  
 
     %div.form-group
-      = f.select :genre_ids, Genre.all.collect {|x| [x.name, x.id]}, {}, :multiple => true
+      = f.select :genre_ids, Genre.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => "multiselect"
       
     %div.form-group
       = f.label :cover
