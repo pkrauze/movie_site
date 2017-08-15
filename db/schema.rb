@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170815142439) do
+ActiveRecord::Schema.define(version: 20170815221711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,19 +23,6 @@ ActiveRecord::Schema.define(version: 20170815142439) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "carts", force: :cascade do |t|
-    t.string   "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cartships", force: :cascade do |t|
-    t.integer  "cart_id"
-    t.integer  "movie_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -60,9 +47,13 @@ ActiveRecord::Schema.define(version: 20170815142439) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "genres_movies", id: false, force: :cascade do |t|
+    t.integer "genre_id"
+    t.integer "product_id"
+  end
+
   create_table "guests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "email"
   end
 
   create_table "movies", force: :cascade do |t|
@@ -160,16 +151,6 @@ ActiveRecord::Schema.define(version: 20170815142439) do
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
-  create_table "subscribeds", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "director_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  add_index "subscribeds", ["director_id"], name: "index_subscribeds_on_director_id", using: :btree
-  add_index "subscribeds", ["user_id"], name: "index_subscribeds_on_user_id", using: :btree
-
   create_table "subscribers", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "director_id"
@@ -210,8 +191,6 @@ ActiveRecord::Schema.define(version: 20170815142439) do
   add_foreign_key "order_items", "movies"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "order_statuses"
-  add_foreign_key "subscribeds", "directors"
-  add_foreign_key "subscribeds", "users"
   add_foreign_key "subscribers", "directors"
   add_foreign_key "subscribers", "users"
 end

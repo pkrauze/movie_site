@@ -13,12 +13,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def current_user 
-    if devise_controller? 
-      @current_user = super 
-    else 
-      @current_user ||= super || Guest.new     
-    end 
+  def current_user
+    @current_user ||= super || Guest.new
+  end
+  
+  def user_signed_in?
+    current_user.is_a? User
   end
   
 end

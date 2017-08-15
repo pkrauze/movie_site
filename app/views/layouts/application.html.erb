@@ -22,16 +22,18 @@
         	<% if user_signed_in? %>
 					<li><%= link_to('My Account', edit_user_registration_path) %></li>
 					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				<% else %>
+				  <% else %>
 					<li><%= link_to('Sign in', new_user_session_path) %></li>
 					<li><%= link_to('Sign up', new_user_registration_path) %></li>
-				<% end %>
+				  <% end %>
       </div>
       <div class="col-xs-4">
         <ul>
           <li><%= link_to "Directors", directors_path %></li>
           <li><%= link_to "Subscribers", subscribers_path %></li>
+          <% if user_signed_in? %>
           <li><%= link_to notifications_number, notifications_path %></li>
+          <% end %>
         </ul>
       </div>
       <div class="col-xs-4 text-right">
