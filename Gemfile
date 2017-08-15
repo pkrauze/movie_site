@@ -33,6 +33,7 @@ gem 'rolify'
 gem 'cancancan'
 gem "haml"
 gem "draper"
+gem 'bootstrap-multiselect_rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
