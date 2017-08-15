@@ -58,5 +58,11 @@ class DirectorsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def director_params
+    params.require(:director).permit(:firstname,:lastname,:year_of_birth)
+  end
 
 end

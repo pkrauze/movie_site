@@ -1,4 +1,4 @@
-<%= form_for(@) do |f| %>
+<%= form_for(director) do |f| %>
   <% if director.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(director.errors.count, "error") %> prohibited this director from being saved:</h2>
