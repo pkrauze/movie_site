@@ -1,26 +1,23 @@
 class OrderItemsController < ApplicationController
+  before_action :set_current_order
+  
   def create
-    @order = current_order
-    @order_item = @order.order_items.new(order_item_params)
-    @order.save
-    session[:order_id] = @order.id
+    session[:order_id] = Cart::CreateOrder.new(@order,order_item_params).call
   end
 
   def update
-    @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.update_attributes(order_item_params)
-    @order_items = @order.order_items
+    @order_items = Cart::UpdateOrder.new(@order,params[:id]).call
   end
 
   def destroy
+    @order_items = Cart::DestroyOrder.new(@order,params[:id]).call
+  end
+
+private
+  def set_current_order
     @order = current_order
-    @order_item = @order.order_items.find(params[:id])
-    @order_item.destroy
-    @order_items = @order.order_items
   end
   
-private
   def order_item_params
     params.require(:order_item).permit(:movie_id)
   end
