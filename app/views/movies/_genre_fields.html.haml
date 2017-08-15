@@ -1,7 +1,0 @@
-  %div.form-group
-    = f.label :genre_id
-    = f.collection_select :genre_id, Genre.all, :id, :name
-    %a(href="#", class="remove") remove
-    
-    = f.hidden_field :id
-    = f.hidden_field :_destroy

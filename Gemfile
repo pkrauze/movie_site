@@ -33,7 +33,7 @@ gem 'rolify'
 gem 'cancancan'
 gem "haml"
 gem "draper"
-gem 'awesome_nested_fields'
+gem "cocoon"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

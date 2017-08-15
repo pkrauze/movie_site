@@ -39,8 +39,6 @@ GEM
     arel (6.0.4)
     autoprefixer-rails (7.1.2.4)
       execjs
-    awesome_nested_fields (0.6.4)
-      rails (>= 3.0.0)
     bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -54,6 +52,7 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    cocoon (1.2.10)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -210,11 +209,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_nested_fields
   bootstrap-sass (~> 3.3.6)
   byebug
   cancancan
   carrierwave
+  cocoon
   coffee-rails (~> 4.1.0)
   decent_exposure (= 3.0.0)
   devise

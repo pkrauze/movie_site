@@ -24,6 +24,13 @@
   <%= movie.time %>
 </p>
 
+<p>
+  <strong>Genres:</strong>
+  <% movie.genres.each do |g| %>
+    <%= g.name %>,
+  <% end %>
+</p>
+
 <div class="row">
 
   <div class="small-2 large-4 columns">
