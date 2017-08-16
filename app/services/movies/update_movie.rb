@@ -6,8 +6,7 @@ module Movies
         end
         
         def call
-            @movie = Movie.find(@id)
-            @movie.update(@params)
+            Movie.find(@id).update(@params)
         end
     end
 end
