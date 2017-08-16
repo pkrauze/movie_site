@@ -1,8 +1,9 @@
 class OrderItemsController < ApplicationController
   before_action :set_current_order
-  
+
   def create
     session[:order_id] = Cart::CreateOrder.new(@order,order_item_params).call
+    redirect_to root_path
   end
 
   def update

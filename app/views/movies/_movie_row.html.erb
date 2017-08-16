@@ -1,5 +1,4 @@
 <div class="well">
-
   <div class="row">
     <div class="col-xs-8">
       <h4><%= movie.title %></small></h4>
@@ -9,11 +8,12 @@
       <%= form_for order_item, remote: true do |f| %>
       <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency movie.price %></span></h4>
         <div class="input-group">
-          
+          <% if !item_in_cart(movie) %>
           <div class="input-group-btn">
             <%= f.hidden_field :movie_id, value: movie.id %>
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
           </div>
+          <% end %>
         </div>
 
       <% end %>
