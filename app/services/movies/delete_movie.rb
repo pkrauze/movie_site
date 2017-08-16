@@ -5,8 +5,7 @@ module Movies
         end
         
         def call
-            @movie = Movie.find(@id)
-            @movie.destroy
+            Movie.find(@id).destroy
         end
     end
 end
