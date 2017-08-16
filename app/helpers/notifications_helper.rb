@@ -4,7 +4,8 @@ module NotificationsHelper
     if user_signed_in?
       @subbed = current_user.subscribers
       @subbed_dir = @subbed.pluck(:director_id)
-      @notifications = Notification.where(director_id: @subbed_dir, read: false)
+      @notif = Notification.where(director_id: @subbed_dir, read: false)
+      @notifications = @notif.where("created_at > ?",@sub_date)
       
       if @notifications.size>0
         "You have #{@notifications.size} new notifications"
