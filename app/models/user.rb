@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   
   has_many :subscribers
   has_many :notifications
+  has_many :comments
   
   rolify
   # Include default devise modules. Others available are:
