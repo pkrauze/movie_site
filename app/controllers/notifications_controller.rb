@@ -20,11 +20,15 @@ class NotificationsController < ApplicationController
   def find_notifications(subbed)
       sub_date = subbed.last.created_at
       subbed_dir = subbed.pluck(:director_id)
+      subbed_genre = subbed.pluck(:genre_id)
       
-      notif = Notification.where(director_id: subbed_dir, read: false)
-      allnotif = Notification.where(director_id: subbed_dir)
+      dir_notif = Notification.where(director_id: subbed_dir, read: false).where("director_id is not ?",nil)
+      dir_allnotif = Notification.where(director_id: subbed_dir).where("director_id is not ?",nil)
       
-      @notifications = notif.where("created_at > ?",sub_date)
-      @allnotifications = allnotif.where("created_at > ?",sub_date)
+      genre_notif = Notification.where(genre_id: subbed_genre, read: false).where("genre_id is not ?",nil)
+      genre_allnotif = Notification.where(genre_id: subbed_genre).where("genre_id is not ?",nil)
+      
+      @notifications = dir_notif.after_sub(sub_date) + genre_notif.after_sub(sub_date)
+      @allnotifications = dir_allnotif.after_sub(sub_date) + genre_allnotif.after_sub(sub_date)
   end
 end
