@@ -30,7 +30,7 @@
     <%= g.name %>,
   <% end %>
 </p>
-
+<% if user_signed_in? %>
 <div class="row">
 
   <div class="small-2 large-4 columns">
@@ -45,6 +45,7 @@
     <% end %>
   </div>
 </div>
+<% end %>
 
 <%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_movie_path(movie) %> |
@@ -55,8 +56,8 @@
 
 <%= form_for [movie, Comment.new] do |f| %>
 <% if user_signed_in? %>
-<%= f.text_area :body, placeholder: "Add a comment" %><br/>
-<%= f.submit "Add Comment" %>
+  <%= f.text_area :body, placeholder: "Add a comment" %><br/>
+  <%= f.submit "Add Comment" %>
 <% else %>
 Log in to add comments
 <% end %>

@@ -5,6 +5,7 @@ class Notification < ActiveRecord::Base
   belongs_to :director
   belongs_to :movie
   belongs_to :genre
+  belongs_to :comment
 
   #validates_presence_of :movie_id, :director_id
 
