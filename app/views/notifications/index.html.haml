@@ -1,9 +1,12 @@
-%h1 New Notifications
+- if @allnotifications.try(:any?)
+  %h1 New Notifications
 
-- @notifications.each do |n|
-  %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} created by #{n.director.fullname}", link_through_path(n)
+  - @notifications.each do |n|
+    %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} created by #{n.director.fullname}", link_through_path(n)
+    
+  %h1 Old Notifications
   
-%h1 All Notifications
-
-- @allnotifications.each do |n|
-  %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} created by #{n.director.fullname}", movie_path(n.movie)
+  - @allnotifications.each do |n|
+    %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} created by #{n.director.fullname}", movie_path(n.movie)
+- else
+  %h1 You don't have any notifications

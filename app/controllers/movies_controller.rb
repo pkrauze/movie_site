@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   expose :movie
   expose :movies, -> { Movie.all }
-  
+
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
   
   # GET /movies

@@ -22,9 +22,9 @@
         <td><%= link_to 'Edit', edit_director_path(director) %></td>
         <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% if !sub_exist(current_user.id, director.id) %>
-        <td><%= link_to 'Subscribe', subscribers_subscribe_path %></td>
+        <td><%= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id) %></td>
         <% else %>
-        <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path %></td>
+        <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path(director_id: director.id) %></td>
         <% end %>
       </tr>
     <% end %>

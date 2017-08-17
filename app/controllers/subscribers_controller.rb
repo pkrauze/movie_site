@@ -5,24 +5,19 @@ class SubscribersController < ApplicationController
   end
   
   def subscribe
-    @director = Director.find_by(params[:director_id])
+    @director = Director.find_by(id: params[:director_id])
     
     if Subscriptions::Subscribe.new(current_user,@director.id).call
-       respond_to do |format|
-        format.html { redirect_to directors_path, notice: 'Subscription was successfully created.' }
-        format.js
-      end
+      redirect_to directors_path, notice: 'Subscription was successfully created.'
     end
   end
   
   def unsubscribe
-    @director = Director.find_by(params[:director_id])
+    @director = Director.find_by(id: params[:director_id])
     
     if Subscriptions::Unsubscribe.new(current_user,@director.id).call
-       respond_to do |format|
-        format.html { redirect_to directors_path, notice: 'Subscription was successfully removed.' }
-        format.js
+      redirect_to directors_path, notice: 'Subscription was successfully removed.'
     end
   end
-end
+
 end
