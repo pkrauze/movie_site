@@ -13,7 +13,7 @@ module Movies
         
         def create_notification
           movie_id = Movie.last.id
-          Notification.create(director_id: @params[:director_id], movie_id: movie_id, notification_type:"new movie", read: false).save
+          Notification.create(genre_id: @params[:genre_ids], director_id: @params[:director_id], movie_id: movie_id, notification_type:"new movie", read: false).save
         end
     end
 end
