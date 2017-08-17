@@ -1,4 +1,11 @@
-%h1 You're subscribing directors:
+%h1 You're subscribing...
 
-- @subscribers.each do |s|
-  %p= s.director.fullname
+%h2 directors:
+
+- @subscribed_directors.each do |s|
+    %p= s.director.fullname
+    
+%h2 genres:
+    
+- @subscribed_genres.each do |s|
+    %p= s.genre.name

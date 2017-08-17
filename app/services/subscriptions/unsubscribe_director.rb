@@ -1,18 +1,18 @@
 module Subscriptions
-  class Subscribe
+  class UnsubscribeDirector
     def initialize(user, director_id)
       @director_id = director_id
       @current_user = user
     end
     
     def call
-      subscribe
+      unsubscribe
     end
     
     private
     
-    def subscribe
-      @current_user.subscribers.create(user_id: @current_user.id, director_id: @director_id).save
+    def unsubscribe
+      @current_user.subscribers.find_by(user_id: @current_user.id, director_id: @director_id).destroy
     end
   end
 end
