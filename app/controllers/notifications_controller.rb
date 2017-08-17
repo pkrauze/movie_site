@@ -2,10 +2,12 @@ class NotificationsController < ApplicationController
   before_filter :authenticate_user!
   def index
     subbed = current_user.subscribers
-    
+    @notifications,@allnotifications = []
     if subbed.any?
       find_notifications(subbed)
     end
+    @notifications += find_comment_notifications
+    @allnotifications += find_comment_notifications
   end
   
   def link_through
@@ -30,5 +32,9 @@ class NotificationsController < ApplicationController
       
       @notifications = dir_notif.after_sub(sub_date) + genre_notif.after_sub(sub_date)
       @allnotifications = dir_allnotif.after_sub(sub_date) + genre_allnotif.after_sub(sub_date)
+  end
+  
+  def find_comment_notifications
+    return @comments_notification = Notification.where("comment_id is not ?",nil).where(read: false)
   end
 end

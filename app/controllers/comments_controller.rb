@@ -11,9 +11,10 @@ class CommentsController < ApplicationController
     @comment.movie_id = params[:movie_id]
     
     if @comment.save
-        redirect_to :back, notice: 'Your comment was successfully posted!'
-      else
-        redirect_to :back, notice: "Your comment wasn't posted!"
+      create_comment_notification
+      redirect_to :back, notice: 'Your comment was successfully posted!'
+    else
+      redirect_to :back, notice: "Your comment wasn't posted!"
     end
   end
   
@@ -21,7 +22,7 @@ class CommentsController < ApplicationController
   private
   
   def comment_params
-    params.require(:comment).permit(:body, :user_id)
+    params.require(:comment).permit(:body, :user_id, :movie_id)
   end
   
   def find_commentable
@@ -30,7 +31,11 @@ class CommentsController < ApplicationController
   end 
   
   def create_comment_notification
-    @comment = Comment.last
-    Notification.create(comment_id: @comment_id, )
+    @user_comments = current_user.comments
+    @commented = @user_comments.find_by(id: @comment.commentable_id)
+    
+    if @commented
+      Notification.create(comment_id: @comment.id, movie_id: @comment.movie_id, notification_type:"new comment", read: false)
+    end
   end
 end
