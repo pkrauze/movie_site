@@ -8,7 +8,7 @@
       <%= form_for order_item, remote: true do |f| %>
       <h4 class="text-right">Unit Price: <span style="color: green"><%= number_to_currency movie.price %></span></h4>
         <div class="input-group">
-          <% if !item_in_cart(movie) %>
+          <% if !item_in_cart(movie) && user_signed_in? %>
           <div class="input-group-btn">
             <%= f.hidden_field :movie_id, value: movie.id %>
             <%= f.submit "Add to Cart", class: "btn btn-primary" %>
