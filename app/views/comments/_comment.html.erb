@@ -4,6 +4,7 @@
 
   <%= form_for [comment, Comment.new] do |f| %>
       <%= f.text_area :body, placeholder: "Add a Reply" %><br/>
+      <%= f.hidden_field :movie_id, value: params[:id] %>
       <%= f.submit "Reply"  %>
       <% end %>
 

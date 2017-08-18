@@ -3,7 +3,7 @@ module NotificationsHelper
       subbed = current_user.subscribers
      
       notifications = []
-      comments_notification = Notification.where("comment_id is not ?",nil).where("user_id = ?",current_user.id)
+      comments_notification = Notification.where("comment_id is not ?",nil).where("user_id = ?",current_user.id).where(read: false)
       if subbed.any?
         sub_date = subbed.last.created_at
         subbed_dir = subbed.pluck(:director_id)

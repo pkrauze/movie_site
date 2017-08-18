@@ -12,8 +12,9 @@ class CommentsController < ApplicationController
     if params[:movie_id].present?
       @comment.movie_id = params[:movie_id]
     else
-      @comment.movie_id = @commentable.id
+      @comment.movie_id = params[:comment][:movie_id]
     end
+
 
     if @comment.save
       create_comment_notification

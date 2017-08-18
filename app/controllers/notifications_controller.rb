@@ -5,12 +5,15 @@ class NotificationsController < ApplicationController
     subbed = current_user.subscribers
     @notifications = []
     @allnotifications = []
-    @notifications = find_comment_notifications
-    @allnotifications = find_comment_notifications.where(read: true)
+    
+    if find_comment_notifications.present?
+      @notifications = find_comment_notifications.where(read: false)
+      @allnotifications = find_comment_notifications.where(read: true)
+    end
     
     if subbed.any?
-      @notifications += find_sub_notifications
-      if @allnotifications.present?
+      if find_sub_notifications.present?
+        @notifications += find_sub_notifications.where(read: false)
         @allnotifications += find_sub_notifications.where(read: true)
       end
     end
@@ -18,7 +21,7 @@ class NotificationsController < ApplicationController
   
   def link_through
     notification = Notification.find(params[:id])
-    if notification.update(read:true)
+    if notification.update(read: true)
       redirect_to movie_path(notification.movie)
     end
   end
@@ -33,7 +36,6 @@ class NotificationsController < ApplicationController
       @subbed_genre = @subbed.pluck(:genre_id)
     end
   end
-  
   
   def find_sub_notifications
     dir_notif = Notification.where(director_id: @subbed_dir).where("director_id is not ?",nil)
