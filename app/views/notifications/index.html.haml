@@ -1,4 +1,4 @@
-- if @allnotifications.try(:any?)
+- if @allnotifications.try(:any?) || @notifications.try(:any?)
   %h1 New Notifications
 
   - @notifications.each do |n|
@@ -6,7 +6,7 @@
       %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} created by #{n.director.fullname}", link_through_path(n)
     - elsif n.genre
       %li=link_to "There is a #{n.notification_type} with title #{n.movie.title} and genre #{n.genre.name}", link_through_path(n)
-    - elsif n.comment.user_id = current_user.id
+    - elsif n.comment
       %li=link_to "User with email #{n.comment.user.email} commented your post", link_through_path(n)
       
   %h1 Old Notifications

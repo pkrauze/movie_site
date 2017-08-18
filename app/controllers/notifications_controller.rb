@@ -1,13 +1,19 @@
 class NotificationsController < ApplicationController
   before_filter :authenticate_user!
   def index
+    find_subscribers
     subbed = current_user.subscribers
-    @notifications,@allnotifications = []
+    @notifications = []
+    @allnotifications = []
+    @notifications = find_comment_notifications
+    @allnotifications = find_comment_notifications.where(read: true)
+    
     if subbed.any?
-      find_notifications(subbed)
+      @notifications += find_sub_notifications
+      if @allnotifications.present?
+        @allnotifications += find_sub_notifications.where(read: true)
+      end
     end
-    @notifications += find_comment_notifications
-    @allnotifications += find_comment_notifications
   end
   
   def link_through
@@ -19,22 +25,26 @@ class NotificationsController < ApplicationController
   
   private
   
-  def find_notifications(subbed)
-      sub_date = subbed.last.created_at
-      subbed_dir = subbed.pluck(:director_id)
-      subbed_genre = subbed.pluck(:genre_id)
-      
-      dir_notif = Notification.where(director_id: subbed_dir, read: false).where("director_id is not ?",nil)
-      dir_allnotif = Notification.where(director_id: subbed_dir).where("director_id is not ?",nil)
-      
-      genre_notif = Notification.where(genre_id: subbed_genre, read: false).where("genre_id is not ?",nil)
-      genre_allnotif = Notification.where(genre_id: subbed_genre).where("genre_id is not ?",nil)
-      
-      @notifications = dir_notif.after_sub(sub_date) + genre_notif.after_sub(sub_date)
-      @allnotifications = dir_allnotif.after_sub(sub_date) + genre_allnotif.after_sub(sub_date)
+  def find_subscribers
+    @subbed = current_user.subscribers
+    if @subbed.any?
+      @sub_date = @subbed.last.created_at
+      @subbed_dir = @subbed.pluck(:director_id)
+      @subbed_genre = @subbed.pluck(:genre_id)
+    end
+  end
+  
+  
+  def find_sub_notifications
+    dir_notif = Notification.where(director_id: @subbed_dir).where("director_id is not ?",nil)
+    genre_notif = Notification.where(genre_id: @subbed_genre).where("genre_id is not ?",nil)
+    
+    @allnotifications = dir_notif.after_sub(@sub_date) + genre_notif.after_sub(@sub_date)
+    
+    return @allnotifications
   end
   
   def find_comment_notifications
-    return @comments_notification = Notification.where("comment_id is not ?",nil).where(read: false)
+    return @comments_notification = Notification.where("comment_id is not ?",nil).where("user_id = ?",current_user.id)
   end
 end
