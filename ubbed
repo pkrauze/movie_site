@@ -1,0 +1,13 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/app/services/notifications/list_notifications.rb @ line 30 Notifications::ListNotifications#find_subscribers:
+
+    [1;34m27[0m: [32mdef[0m [1;34mfind_subscribers[0m
+    [1;34m28[0m:   subbed = @current_user.subscribers
+    [1;34m29[0m:   [32mif[0m subbed.any?
+ => [1;34m30[0m:     binding.pry
+    [1;34m31[0m:     @sub_date = subbed.last.created_at
+    [1;34m32[0m:     @subbed_dir = subbed.pluck([33m:director_id[0m).compact
+    [1;34m33[0m:     @subbed_genre = subbed.pluck([33m:genre_id[0m).compact
+    [1;34m34[0m:   [32mend[0m
+    [1;34m35[0m: [32mend[0m
+
