@@ -1,8 +1,18 @@
 <h3 class="text-center">Movies for Sale</h3>
-
+<div class="row">
+  <%= link_to 'All', movies_path %>
+  <br>
+  <%= form_tag '', :method => :get do %>
+    <% genres.each do |genre| %>
+      <%= check_box_tag("genre_ids[]", genre.id) %>
+      <%=h genre.name %>
+    <% end %>
+    <%= submit_tag 'Filter', name: nil %>
+  <% end %>
+</div>
 <div class="row">
   <div class="col-xs-6 col-xs-offset-3">
-    <% movies.each do |movie| %>
+    <% @movies.each do |movie| %>
     <div class="movie_r">
       <%= render "movie_row", movie: movie, order_item: @order_item %>
     </div>

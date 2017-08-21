@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   expose :movie
   expose :movies, -> { Movie.all }
+  expose :genres, -> { Genre.all }
 
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
   
@@ -8,6 +9,11 @@ class MoviesController < ApplicationController
   # GET /movies.json
   def index
     @order_item = current_order.order_items.new
+    @movies = Movie.all
+    
+    if params[:genre_ids].present?
+      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+    end
   end
 
   # GET /movies/1
@@ -21,6 +27,12 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
+  end
+  
+  def list_genre
+    genre = Genre.find(params[:genre_id])
+    movies = genre.movies
+    binding.pry
   end
 
   # POST /movies

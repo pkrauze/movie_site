@@ -15,12 +15,14 @@
       <tr>
         <td><%= genre.name %></td>
         <td><%= link_to 'Show', genre %></td>
-        <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
-        <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% if !sub_genre_exist(current_user.id, genre.id) %>
-        <td><%= link_to 'Subscribe', subscribers_subscribe_path(genre_id: genre.id) %></td>
-        <% else %>
-        <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path(genre_id: genre.id) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_genre_path(genre) %></td>
+          <td><%= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if !sub_genre_exist(current_user.id, genre.id) %>
+          <td><%= link_to 'Subscribe', subscribers_subscribe_path(genre_id: genre.id) %></td>
+          <% else %>
+          <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path(genre_id: genre.id) %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>

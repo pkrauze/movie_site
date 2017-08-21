@@ -19,12 +19,14 @@
         <td><%= director.lastname %></td>
         <td><%= director.year_of_birth %></td>
         <td><%= link_to 'Show', director %></td>
-        <td><%= link_to 'Edit', edit_director_path(director) %></td>
-        <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% if !sub_director_exist(current_user.id, director.id) %>
-        <td><%= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id) %></td>
-        <% else %>
-        <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path(director_id: director.id) %></td>
+        <% if user_signed_in? %>
+          <td><%= link_to 'Edit', edit_director_path(director) %></td>
+          <td><%= link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if !sub_director_exist(current_user.id, director.id) %>
+          <td><%= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id) %></td>
+          <% else %>
+          <td><%= link_to 'Unsubscribe', subscribers_unsubscribe_path(director_id: director.id) %></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
