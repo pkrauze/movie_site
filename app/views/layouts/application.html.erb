@@ -15,33 +15,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-4">
-        <h1><%= link_to "My Store", root_path %></h1>
-        	<% if user_signed_in? %>
-        	<li><%= "Hello #{current_user.email}" %></li>
-					<li><%= link_to('My Account', edit_user_registration_path) %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				  <% else %>
-					<li><%= link_to('Sign in', new_user_session_path) %></li>
-					<li><%= link_to('Sign up', new_user_registration_path) %></li>
-				  <% end %>
-      </div>
-      <div class="col-xs-4">
-        <ul>
-          <li><%= link_to "Directors", directors_path %></li>
-          <li><%= link_to "Genres", genres_path %></li>
-          <% if user_signed_in? %>
-          <li><%= link_to "Subscribers", subscribers_path %></li>
-          <li><%= link_to notifications_number, notifications_path %></li>
-          <% end %>
-        </ul>
-      </div>
-      <div class="col-xs-4 text-right">
-        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
-      </div>
-    </div>
+  <%= render 'layouts/navbar' %>
+  
     <hr>
     <%= yield %>
   </div>
