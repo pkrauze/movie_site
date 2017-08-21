@@ -28,12 +28,6 @@ class MoviesController < ApplicationController
   # GET /movies/1/edit
   def edit
   end
-  
-  def list_genre
-    genre = Genre.find(params[:genre_id])
-    movies = genre.movies
-    binding.pry
-  end
 
   # POST /movies
   # POST /movies.json
