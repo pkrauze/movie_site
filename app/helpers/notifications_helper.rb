@@ -14,15 +14,11 @@ module NotificationsHelper
         
         
         notifications = dir_notif.after_sub(sub_date) + genre_notif.after_sub(sub_date)
-      else
-        "Notifications"
       end
       
       notifications += comments_notification        
       if notifications.size>0
-        "You have #{notifications.size} new notifications"
-      else
-        "Notifications"
+        return notifications.size
       end
       
     end

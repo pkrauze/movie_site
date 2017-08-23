@@ -12,7 +12,7 @@
       %li.divider
       -if user_signed_in?
         %li= link_to "Subscribers", subscribers_path
-        %li= link_to notifications_number, notifications_path
+        %li= link_to "Notifications", notifications_path
         %li.divider
       %li= link_to "Directors", directors_path
       %li= link_to "Genres", genres_path
@@ -27,5 +27,7 @@
       %h1= link_to "My Store", root_path
     
   %div.right-side
+    =link_to notifications_path, class:"fa fa-bell",id:"notif-bell", aria: {hidden: true} do
+      %span.notif-counter= notifications_number
     %div.cart
       %h1.cart-text= render 'layouts/cart_text'
