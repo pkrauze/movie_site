@@ -1,4 +1,4 @@
 %div.movie
-  %div.cover= link_to image_tag(movie.images.first.url(:thumb)), movie
+  %div.cover= link_to image_tag(movie.images.first.cover.url), movie
   %div.title= link_to movie.title, movie
   %span= list_movie_genres(movie)
