@@ -1,5 +1,7 @@
 class Movie < ActiveRecord::Base
     mount_uploaders :images, ImageUploader
+    extend FriendlyId
+    friendly_id :title, use: [:slugged, :finders]
 
     ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 

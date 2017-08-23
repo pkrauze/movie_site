@@ -5,7 +5,7 @@ module Movies
         end
         
         def call
-            Movie.find(@id).destroy
+            Movie.friendly.find(@id).destroy
         end
     end
 end
