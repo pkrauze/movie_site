@@ -26,7 +26,7 @@
       
   %div.movies
     - @movies.each do |movie|
-      %div.col-xs-2
+      %div
         = render 'movie_row', movie: movie, order_item: @order_item
         
     = link_to 'New Movie', new_movie_path
