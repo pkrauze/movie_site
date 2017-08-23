@@ -17,3 +17,13 @@
 //= require bootstrap-multiselect
 //= require turbolinks
 //= require_tree .
+
+var main = function() {
+  $('.menu-icon').click(function(){
+    $('.menu').toggleClass('menu-active');
+    $('.left-side').toggleClass('left-active')
+    $('#nav-icon').toggleClass('open');
+  });
+};
+
+$(document).on('turbolinks:load',main);
