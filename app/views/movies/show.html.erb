@@ -1,7 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <%= image_tag movie.cover.url %>
+  <% binding.pry %>
+  <%= image_tag(movie.images.first.url, alt: 'Image') %>
 </p>
 
 <p>

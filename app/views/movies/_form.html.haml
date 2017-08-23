@@ -36,7 +36,7 @@
       = f.select :genre_ids, Genre.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => "multiselect"
       
     %div.form-group
-      = f.label :cover
-      = f.file_field :cover
+      = f.label :image
+      = f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png"
   
     = f.submit

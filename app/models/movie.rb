@@ -1,5 +1,5 @@
 class Movie < ActiveRecord::Base
-    mount_uploader :cover, CoverUploader
+    mount_uploaders :images, ImageUploader
 
     ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 
