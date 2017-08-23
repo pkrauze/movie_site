@@ -24,9 +24,8 @@
                 = genre.name
             = submit_tag 'Filter', name: nil
       
-  %div.movies
+  %div.movies.flex-container
     - @movies.each do |movie|
-      %div
-        = render 'movie_row', movie: movie, order_item: @order_item
+      = render 'movie_row', movie: movie, order_item: @order_item
         
     = link_to 'New Movie', new_movie_path

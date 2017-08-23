@@ -8,14 +8,14 @@ $grey: #333333;
 
 .menu {
   position: absolute;
-  width: 15vw;
+  width: 15%;
   height: 100vh;
   top: 0;
-  left: -15vw;
+  left: -15%;
   text-align: center;
   transition: all 0.3s ease;
   background-color: $grey;
-  
+  z-index:999;
 }
 
 .menu-active {
@@ -59,7 +59,7 @@ $grey: #333333;
 }
 
 .left-active {
-  left: 15vw;
+  left: 15%;
 }
 
 .menu-icon {
