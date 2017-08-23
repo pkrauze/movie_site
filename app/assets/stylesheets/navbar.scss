@@ -4,7 +4,6 @@ $grey: #333333;
 #navbar {
   height: 100px;
   width: 100%;
-  border: 1px solid red;
 }
 
 .menu {
@@ -27,7 +26,8 @@ $grey: #333333;
   list-style-type: none;
   width: 100%;
   height: 100%;
-  font-size: 200%;
+  font-size: 180%;
+  line-height: 120%;
   margin: 0;
   padding: 0;
 }
@@ -35,7 +35,7 @@ $grey: #333333;
 .menu ul li {
   padding: 15px 0;
   width: 100%;
-  height: 50px;
+  height: auto;
 }
 
 .divider {

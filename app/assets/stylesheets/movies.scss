@@ -1,3 +1,51 @@
-// Place all the styles related to the Movies controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$black: #292929;
+$grey: #333333;
+
+.movie-page {
+}
+
+.top-bar {
+  height: 50px;
+  width: 100%;
+  background-color: $grey;
+  color: white;
+  padding:15px;
+  margin-bottom: 20px;
+  position:relative;
+  left: 0;
+  transition: all .3s ease;
+}
+
+.movies {
+  position:relative;
+  left: 0;
+  width: 100%;
+  transition: all .3s ease;
+}
+
+.movie-active {
+  padding-left: 15%;
+}
+
+.top-bar a {
+  color:white;
+  text-decoration:none;
+}
+
+.list {
+  font-size: 105%;
+}
+
+.list li {
+  display: inline;
+  margin-right: 25px;
+}
+
+.list li ul {
+  padding: 10px;
+}
+
+.list li ul li {
+  display:list-item;
+  color: black;
+}

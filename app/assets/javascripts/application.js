@@ -21,7 +21,9 @@
 var main = function() {
   $('.menu-icon').click(function(){
     $('.menu').toggleClass('menu-active');
-    $('.left-side').toggleClass('left-active')
+    $('.left-side').toggleClass('left-active');
+    $('.movies').toggleClass('movie-active');
+    $('.top-bar').toggleClass('movie-active');
     $('#nav-icon').toggleClass('open');
   });
 };
