@@ -26,6 +26,9 @@ var main = function() {
     $('.top-bar').toggleClass('movie-active');
     $('#nav-icon').toggleClass('open');
   });
+  
+  $('.multiselect').multiselect();
+  $('.dropdown-toggle').dropdown();
 };
 
 $(document).on('turbolinks:load',main);
