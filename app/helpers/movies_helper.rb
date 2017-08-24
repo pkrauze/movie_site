@@ -15,6 +15,6 @@ module MoviesHelper
       genres << [g.name.to_s]
     end
     
-    return genres.join(', ')
+    return genres.join('/')
   end
 end
