@@ -28,6 +28,7 @@
     
   %div.right-side
     =link_to notifications_path, class:"fa fa-bell",id:"notif-bell", aria: {hidden: true} do
-      %span.notif-counter= notifications_number
+      -if notifications_number
+        %span.notif-counter= notifications_number
     %div.cart
-      %h1.cart-text= render 'layouts/cart_text'
+      %span.cart-text= render 'layouts/cart_text'

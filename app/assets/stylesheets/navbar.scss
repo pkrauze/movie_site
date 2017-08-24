@@ -93,7 +93,35 @@ $grey: #333333;
 
 #notif-bell {
   font-size: 200%;
+  position: relative;
+  right: 265px;
+  top: 35px;
 }
+
+
+.notif-counter {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #f7902a;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  text-align: center;
+  font-size: 65%;
+  padding: 1.5px;
+  right: -8px;
+  top: -3px;
+}
+
+.cart {
+  position: relative;
+  right: 20px;
+}
+
+.cart-text a {
+  font-size: 130%;
+}
+
 
 #nav-icon {
   width: 50px;
