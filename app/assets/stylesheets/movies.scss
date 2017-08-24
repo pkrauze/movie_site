@@ -76,12 +76,14 @@ $grey: #333333;
 }
 
 .movie .title {
-  font-size: 120%;
-  font-weight: bold;
+  font-size: 130%;
+  font-weight: 600;
   margin-left: 5px;
+  letter-spacing: 1px;
 }
 
 .movie span {
   font-size: 90%;
   margin-left: 5px;
+  font-weight: 300;
 }
