@@ -23,8 +23,8 @@
         %span
         %span
     
-    %div.logo
-      %h1= link_to "My Store", root_path
+    = link_to root_path do
+      %div.logo
     
   %div.right-side
     =link_to notifications_path, class:"fa fa-bell",id:"notif-bell", aria: {hidden: true} do

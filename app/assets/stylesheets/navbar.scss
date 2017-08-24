@@ -72,8 +72,13 @@ $grey: #333333;
 
 .logo {
   position: absolute;
-  top: 6px;
-  left: 110px;
+  top: 25px;
+  left: 115px;
+  background-image: url(site-logo.png);
+  background-size: 350px 50px;
+  background-repeat: no-repeat;
+  width: 350px;
+  height: 50px;
 }
 
 .right-side {
