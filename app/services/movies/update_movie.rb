@@ -6,7 +6,7 @@ module Movies
         end
         
         def call
-            Movie.find(@id).update(@params)
+            Movie.friendly.find(@id).update(@params)
         end
     end
 end
