@@ -38,6 +38,8 @@ $grey: #333333;
 
 .list {
   font-size: 105%;
+  font-weight: 600;
+  letter-spacing: .5px;
 }
 
 .list li {
@@ -52,6 +54,8 @@ $grey: #333333;
 .list li ul li {
   display:list-item;
   color: black;
+  font-weight: 500;
+  letter-spacing: normal;
 }
 
 .movie {
