@@ -30,6 +30,10 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
+input, select, textarea{
+    color: $black;
+}
+
 a:hover,
 a:visited,
 a:active,

@@ -3,7 +3,7 @@ class Movie < ActiveRecord::Base
     extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]
 
-    ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
+    ratyrate_rateable 'rating'
 
     belongs_to :director
     has_many :order_items, dependent: :destroy

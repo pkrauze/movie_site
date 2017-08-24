@@ -1,0 +1,35 @@
+%div.movie-show-page
+  %div.top-bar
+  
+  %div.movie-show
+    %p#notice= notice
+    
+    %div.movie-cover.col-lg-3
+      = image_tag(movie.images.first.url, alt: "#{movie.title} Cover")
+    
+    %div.movie-info.col-lg-9
+      %span.title= movie.title
+      %ul
+        %li.year= movie.year
+        %li.time= "#{movie.time} min."
+        %li.genres= list_movie_genres(movie)
+      -if user_signed_in?
+        %span.rating= rating_for movie, 'rating', cancel_place: 'right'
+      %span.price=number_to_currency(movie.price)
+      %p.desc= movie.desc
+      
+      %div.movie-controls
+        =link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
+        =link_to 'Edit', edit_movie_path(movie)
+        =link_to 'Back', movies_path
+      
+    %div.comments-section.col-lg-12
+      = form_for [movie, Comment.new] do |f|
+        - if user_signed_in?
+          = f.text_area :body, placeholder: "Add a comment"
+          = f.hidden_field :movie_id, value: movie.id
+          = f.submit "Add Comment"
+        - else
+        Log in to add comments
+        
+      %ul= render(partial: 'comments/comment', collection: movie.comments)
