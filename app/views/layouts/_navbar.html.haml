@@ -17,7 +17,7 @@
       %li= link_to "Directors", directors_path
       %li.divider Genres
       - genres.each do |g|
-        %li= link_to g.name, movies_path(:genre_ids => g.id)
+        %li= link_to g.name, fetch_movies_path(:genre_ids => g.id), remote: true
   %div.left-side
     %div.menu-icon
       %div#nav-icon

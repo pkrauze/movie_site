@@ -25,7 +25,6 @@
             = submit_tag 'Filter', name: nil
       
   %div.movies.flex-container
-    - @movies.each do |movie|
-      = render 'movie_row', movie: movie, order_item: @order_item
+    = render partial: 'list_movies', locals: { movies: @movies }
         
     = link_to 'New Movie', new_movie_path

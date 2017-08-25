@@ -10,9 +10,12 @@ class MoviesController < ApplicationController
   def index
     @order_item = current_order.order_items.new
     @movies = Movie.all
-    
-    if params[:genre_ids].present?
-      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+  end
+  
+  def from_genre
+    @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+    respond_to do |format|
+      format.js
     end
   end
 

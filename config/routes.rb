@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'notifications/:id/link_through', to: 'notifications#link_through',
                                         as: :link_through
 
+  get "/fetch_movies" => 'movies#from_genre', as: 'fetch_movies'
+  
   get 'subscribers/index'
 
   get 'subscribers/subscribe'
