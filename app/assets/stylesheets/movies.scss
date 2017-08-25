@@ -8,7 +8,6 @@ $grey: #333333;
   height: 50px;
   width: 100%;
   background-color: $grey;
-  color: white;
   padding:15px;
   margin-bottom: 35px;
   position:relative;
@@ -92,6 +91,7 @@ $grey: #333333;
   font-size: 90%;
   margin-left: 5px;
   font-weight: 300;
+  color: #cecece;
 }
 
 .movie-show {
