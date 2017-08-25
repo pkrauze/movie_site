@@ -1,7 +1,5 @@
 class MoviesController < ApplicationController
   expose :movie
-  expose :movies, -> { Movie.all }
-  expose :genres, -> { Genre.all }
 
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
   
@@ -13,7 +11,11 @@ class MoviesController < ApplicationController
   end
   
   def from_genre
-    @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+    if params[:genre_ids].present?
+      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+    else
+      @movies = Movie.all
+    end
     respond_to do |format|
       format.js
     end

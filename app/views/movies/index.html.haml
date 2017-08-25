@@ -17,7 +17,7 @@
           Filters
           %b.caret
         %ul.filter-dropdown.dropdown-menu{"role" => "menu"}
-          = form_tag '', :method => :get do
+          = form_tag url_for(controller: 'movies', action: 'from_genre'), :method => :get, remote: true do
             - genres.each do |genre|
               %li
                 = check_box_tag 'genre_ids[]', genre.id
