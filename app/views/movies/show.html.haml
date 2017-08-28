@@ -5,7 +5,7 @@
     %p#notice= notice
     
     %div.movie-cover.col-lg-3
-      = image_tag(movie.images.first.url, alt: "#{movie.title} Cover")
+      = image_tag(movie.covers.first.url, alt: "#{movie.title} Cover")
     
     %div.movie-info.col-lg-9
       %span.title= movie.title

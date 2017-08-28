@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
     mount_uploaders :images, ImageUploader
+    mount_uploaders :covers, CoverUploader
     extend FriendlyId
     friendly_id :title, use: [:slugged, :finders]
 

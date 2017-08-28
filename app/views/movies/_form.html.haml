@@ -38,5 +38,9 @@
     %div.form-group
       = f.label :image
       = f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png"
+      
+    %div.form-group
+      = f.label :cover
+      = f.file_field :covers, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png"
   
     = f.submit
