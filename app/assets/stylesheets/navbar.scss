@@ -1,5 +1,6 @@
 $black: #292929;
 $grey: #333333;
+$menu-width: 300px;
 
 #navbar {
   height: 100px;
@@ -8,10 +9,10 @@ $grey: #333333;
 
 .menu {
   position: absolute;
-  width: 15%;
-  height: 100vh;
+  width: $menu-width;
+  height: 100%;
   top: 0;
-  left: -15%;
+  left: -$menu-width;
   text-align: center;
   transition: all 0.3s ease;
   background-color: $black;
@@ -61,7 +62,7 @@ $grey: #333333;
 }
 
 .left-active {
-  left: 15%;
+  left: $menu-width;
 }
 
 .menu-icon {

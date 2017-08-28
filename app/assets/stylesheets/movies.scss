@@ -1,8 +1,6 @@
 $black: #292929;
 $grey: #333333;
-
-.movie-page {
-}
+$menu-width: 300px;
 
 .top-bar {
   height: 50px;
@@ -29,7 +27,7 @@ $grey: #333333;
 }
 
 .movie-active {
-  padding-left: 15%;
+  padding-left: $menu-width;
 }
 
 .top-bar a {
@@ -96,6 +94,13 @@ $grey: #333333;
 
 .movie-show {
   padding: 0 35px;
+  padding-left: 0;
+  height: auto;
+  transition: all .3s ease;
+}
+
+.movie-show-active {
+  padding-left: $menu-width;
 }
 
 .movie-cover {
@@ -149,4 +154,51 @@ $grey: #333333;
 
 .comments-section {
   margin: 30px 0;
+  padding: 0 50px !important;
+  border: 1px solid red;
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  ul li span {
+    font-size: 120%;
+  }
+  
+  ul li .comment {
+    border: 1px solid $grey;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background: $grey;
+    padding: 30px 20px;
+    
+    small {
+      float: right;
+    }
+  }
+  
+  input {
+    float:right;
+    background-color: $black;
+    border: 1px solid white;
+    color: white;
+    border-radius: 5%;
+    padding: 5px 10px;
+  }
+      
+  textarea {
+    width: 100%;
+    background-color: $grey;
+    color: white;
+  }
+    
+  form {
+    margin-bottom: 50px;
+  }
+}
+
+.other-movies {
+  margin: 30px 0;
+  padding: 0 50px;
+  border: 1px solid green;
 }
