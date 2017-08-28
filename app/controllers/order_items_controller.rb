@@ -3,7 +3,6 @@ class OrderItemsController < ApplicationController
 
   def create
     session[:order_id] = Cart::CreateOrder.new(@order,order_item_params).call
-    redirect_to root_path
   end
 
   def update

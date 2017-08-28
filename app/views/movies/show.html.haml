@@ -15,7 +15,14 @@
         %li.genres= list_movie_genres(movie)
       -if user_signed_in?
         %span.rating= rating_for movie, 'rating', cancel_place: 'right'
-      %span.price=number_to_currency(movie.price)
+        
+      %div.add_to_cart
+        %span.price=number_to_currency(movie.price)
+        = form_for @order_item, remote: true do |f|
+          - if !item_in_cart(movie) && user_signed_in?
+            = f.hidden_field :movie_id, value: movie.id
+            = f.submit "Add to Cart", class: "btn btn-primary", data: { disable_with: "Please wait..." }
+                  
       %p.desc= movie.desc
       %div.images
         - movie.images.each do |image|

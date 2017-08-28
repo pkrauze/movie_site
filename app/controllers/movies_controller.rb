@@ -6,7 +6,6 @@ class MoviesController < ApplicationController
   # GET /movies
   # GET /movies.json
   def index
-    @order_item = current_order.order_items.new
     @movies = Movie.all
   end
   
@@ -24,13 +23,14 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
-    @genres = movie.genres
-    @genre_ids = []
+    @order_item = current_order.order_items.new
+    genres = movie.genres
+    genre_ids = []
     
-    @genres.each do |g|
-      @genre_ids << [g.id]
+    genres.each do |g|
+      genre_ids << [g.id]
     end
-    @similar_movies = Movie.includes(:genres).where(genres:{id: @genre_ids})
+    @similar_movies = Movie.includes(:genres).where(genres:{id: genre_ids})
   end
 
   # GET /movies/new
