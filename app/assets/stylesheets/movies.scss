@@ -232,5 +232,14 @@ $menu-width: 300px;
 .other-movies {
   margin: 30px 0;
   padding: 0 50px;
-  border: 1px solid green;
+  
+  h2 {
+    border-bottom: 2px solid white;
+    padding-bottom: 10px;
+  }
+  
+  .movie .cover a img {
+    width: 70%;
+    height: auto;
+  }
 }

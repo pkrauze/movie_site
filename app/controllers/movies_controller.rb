@@ -24,6 +24,13 @@ class MoviesController < ApplicationController
   # GET /movies/1
   # GET /movies/1.json
   def show
+    @genres = movie.genres
+    @genre_ids = []
+    
+    @genres.each do |g|
+      @genre_ids << [g.id]
+    end
+    @similar_movies = Movie.includes(:genres).where(genres:{id: @genre_ids})
   end
 
   # GET /movies/new

@@ -17,4 +17,5 @@ module MoviesHelper
     
     return genres.join('/')
   end
+
 end

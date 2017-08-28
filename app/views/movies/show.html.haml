@@ -38,5 +38,8 @@
           Log in to add comments
         
       %ul= render(partial: 'comments/comment', collection: movie.comments)
-      
     %div.col-lg-6.other-movies
+      %h2 Similar Movies
+      %br
+      - @similar_movies.each do |movie|
+        = render 'movie_row', movie: movie
