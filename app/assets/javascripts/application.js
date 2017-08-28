@@ -24,7 +24,7 @@ var main = function() {
     $('.left-side').toggleClass('left-active');
     $('.movies').toggleClass('movie-active');
     $('.top-bar').toggleClass('movie-active');
-    $('.movie-show').toggleClass('movie-show-active');
+    $('.movie-show').toggleClass('movie-active');
     
     $('#nav-icon').toggleClass('open');
   });

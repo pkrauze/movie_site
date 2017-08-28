@@ -17,16 +17,21 @@
         %span.rating= rating_for movie, 'rating', cancel_place: 'right'
       %span.price=number_to_currency(movie.price)
       %p.desc= movie.desc
-      
+      %div.images
+        - movie.images.each do |image|
+          = image_tag(image.url)
+
       %div.movie-controls
         =link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
         =link_to 'Edit', edit_movie_path(movie)
         =link_to 'Back', movies_path
       
     %div.col-lg-6.comments-section
+      %h2 All Comments
+      %br
       = form_for [movie, Comment.new] do |f|
         - if user_signed_in?
-          = f.text_area :body, placeholder: "Add a comment", required: true
+          = f.text_area :body, placeholder: "Add a comment", required: true, id:"first-comment"
           = f.hidden_field :movie_id, value: movie.id
           = f.submit "Add Comment"
         - else
