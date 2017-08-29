@@ -7,24 +7,6 @@ $menu-width: 300px;
   width: 100%;
 }
 
-.menu {
-  position: absolute;
-  width: $menu-width;
-  height: 100%;
-  top: 0;
-  left: -$menu-width;
-  text-align: center;
-  transition: all 0.3s ease;
-  background-color: $black;
-  z-index:999;
-  font-family: 'Montserrat', sans-serif;
-  box-shadow: 2px 0px 5px black;
-}
-
-.menu-active {
-  left: 0;
-}
-
 .menu ul {
   list-style-type: none;
   width: 100%;
@@ -59,10 +41,6 @@ $menu-width: 300px;
   height:100%;
   float:left;
   transition: all 0.3s ease;
-}
-
-.left-active {
-  left: $menu-width;
 }
 
 .menu-icon {

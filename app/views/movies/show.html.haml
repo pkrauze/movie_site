@@ -36,13 +36,13 @@
     %div.col-lg-6.comments-section
       %h2 All Comments
       %br
-      = form_for [movie, Comment.new] do |f|
-        - if user_signed_in?
+      - if user_signed_in?
+        = form_for [movie, Comment.new] do |f|
           = f.text_area :body, placeholder: "Add a comment", required: true, id:"first-comment"
           = f.hidden_field :movie_id, value: movie.id
           = f.submit "Add Comment"
-        - else
-          Log in to add comments
+      - else
+        Log in to add comments
         
       %ul= render(partial: 'comments/comment', collection: movie.comments)
     %div.col-lg-6.other-movies

@@ -16,7 +16,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render 'layouts/navbar' %>
-  <%= yield %>
+  <div class="menu">
+    <%= render 'layouts/menu' %>
+  </div>
+  <div class="content">
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+  </div>
+  
 </body>
 </html>

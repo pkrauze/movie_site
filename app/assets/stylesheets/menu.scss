@@ -1,0 +1,26 @@
+$black: #292929;
+$grey: #333333;
+$menu-width: 300px;
+
+.menu {
+  position: absolute;
+  width: $menu-width;
+  height: 100%;
+  top: 0;
+  left: -$menu-width;
+  text-align: center;
+  transition: all 0.3s ease;
+  background-color: $black;
+  z-index:999;
+  font-family: 'Montserrat', sans-serif;
+  box-shadow: 2px 0px 5px black;
+}
+
+.menu-active {
+  left: 0;
+}
+
+
+.content-active {
+  padding-left: $menu-width;
+}
