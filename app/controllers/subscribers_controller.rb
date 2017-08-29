@@ -1,4 +1,5 @@
 class SubscribersController < ApplicationController
+  before_action :set_director,:set_genre, only: [:subscribe, :unsubscribe]
 
   def index
     @subscribers = current_user.subscribers
@@ -8,14 +9,10 @@ class SubscribersController < ApplicationController
   
   def subscribe
     if params[:director_id]
-      @director = Director.find_by(id: params[:director_id])
-      
       if Subscriptions::SubscribeDirector.new(current_user,@director.id).call
         redirect_to directors_path, notice: 'Subscription was successfully created.'
       end
     elsif params[:genre_id]
-      @genre = Genre.find_by(id: params[:genre_id])
-      
       if Subscriptions::SubscribeGenre.new(current_user,@genre.id).call
         redirect_to genres_path, notice: 'Subscription was successfully deleted.'
       end
@@ -24,17 +21,23 @@ class SubscribersController < ApplicationController
   
   def unsubscribe
     if params[:director_id]
-      @director = Director.find_by(id: params[:director_id])
-      
       if Subscriptions::UnsubscribeDirector.new(current_user,@director.id).call
         redirect_to directors_path, notice: 'Subscription was successfully created.'
       end
     elsif params[:genre_id]
-      @genre = Genre.find_by(id: params[:genre_id])
-      
       if Subscriptions::UnsubscribeGenre.new(current_user,@genre.id).call
         redirect_to genres_path, notice: 'Subscription was successfully deleted.'
       end
     end
+  end
+  
+  private
+  
+  def set_director
+    @director = Director.find_by(id: params[:director_id])
+  end
+  
+  def set_genre
+    @genre = Genre.find_by(id: params[:genre_id])
   end
 end
