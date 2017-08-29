@@ -2,26 +2,18 @@ class GenresController < ApplicationController
   expose :genre
   expose :genres,-> {Genre.all}
 
-  # GET /genres
-  # GET /genres.json
   def index
   end
 
-  # GET /genres/1
-  # GET /genres/1.json
   def show
   end
 
-  # GET /genres/new
   def new
   end
 
-  # GET /genres/1/edit
   def edit
   end
 
-  # POST /genres
-  # POST /genres.json
   def create
     respond_to do |format|
       if genre.save
@@ -34,8 +26,6 @@ class GenresController < ApplicationController
     end
   end
 
-  # PATCH/PUT /genres/1
-  # PATCH/PUT /genres/1.json
   def update
     respond_to do |format|
       if genre.update(genre_params)
@@ -48,8 +38,6 @@ class GenresController < ApplicationController
     end
   end
 
-  # DELETE /genres/1
-  # DELETE /genres/1.json
   def destroy
     genre.destroy
     respond_to do |format|
@@ -59,7 +47,6 @@ class GenresController < ApplicationController
   end
 
   private
-  
     def genre_params
       params.require(:genre).permit(:name)
     end
