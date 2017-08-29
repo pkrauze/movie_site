@@ -2,6 +2,9 @@ class OrderItemsController < ApplicationController
 
   def create
     session[:order_id] = Cart::CreateOrder.new(current_order,order_item_params).call
+    respond_to do |format|
+      format.js {render inline: "location.reload();" }
+    end
   end
 
   def update

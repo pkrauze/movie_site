@@ -18,8 +18,8 @@
         
         %div.add_to_cart
           %span.price=number_to_currency(movie.price)
-          = form_for @order_item, remote: true do |f|
-            - if !item_in_cart(movie) && user_signed_in?
+          - if !item_in_cart(movie) && user_signed_in?
+            = form_for @order_item, remote: true, class:"add-to-cart-form" do |f|
               = f.hidden_field :movie_id, value: movie.id
               = f.submit "Add to Cart", class: "btn btn-primary", data: { disable_with: "Please wait..." }
                   
