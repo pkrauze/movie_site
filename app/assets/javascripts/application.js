@@ -30,4 +30,4 @@ var main = function() {
   $('.dropdown-toggle').dropdown();
 };
 
-$(document).on('turbolinks:load',main);
+$(document).on(main);
