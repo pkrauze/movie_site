@@ -5,9 +5,15 @@
     %h2 directors:
     
     - @subscribed_directors.each do |s|
-        %p= s.director.fullname
+        %p
+            %span= s.director.fullname
+            = link_to subscribers_unsubscribe_path(director_id: s.director.id) do
+                %i.glyphicon.glyphicon-remove
         
     %h2 genres:
         
     - @subscribed_genres.each do |s|
-        %p= s.genre.name
+        %p
+            %span= s.genre.name
+            = link_to subscribers_unsubscribe_path(genre_id: s.genre.id) do
+                %i.glyphicon.glyphicon-remove

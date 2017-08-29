@@ -10,11 +10,11 @@ class SubscribersController < ApplicationController
   def subscribe
     if params[:director_id]
       if Subscriptions::SubscribeDirector.new(current_user,@director.id).call
-        redirect_to directors_path, notice: 'Subscription was successfully created.'
+        redirect_to :back
       end
     elsif params[:genre_id]
       if Subscriptions::SubscribeGenre.new(current_user,@genre.id).call
-        redirect_to genres_path, notice: 'Subscription was successfully deleted.'
+        redirect_to :back
       end
     end
   end
@@ -22,11 +22,11 @@ class SubscribersController < ApplicationController
   def unsubscribe
     if params[:director_id]
       if Subscriptions::UnsubscribeDirector.new(current_user,@director.id).call
-        redirect_to directors_path, notice: 'Subscription was successfully created.'
+        redirect_to :back
       end
     elsif params[:genre_id]
       if Subscriptions::UnsubscribeGenre.new(current_user,@genre.id).call
-        redirect_to genres_path, notice: 'Subscription was successfully deleted.'
+        redirect_to :back
       end
     end
   end
