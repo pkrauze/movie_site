@@ -16,7 +16,6 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require bootstrap-multiselect
-//= require turbolinks
 //= require_tree .
 
 var main = function() {
@@ -31,4 +30,4 @@ var main = function() {
   $('.dropdown-toggle').dropdown();
 };
 
-$(document).on('turbolinks:load',main);
+$(main);
