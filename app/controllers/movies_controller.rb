@@ -1,53 +1,39 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
   expose :movie
 
-  before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
-  
-  # GET /movies
-  # GET /movies.json
   def index
     @movies = Movie.all
   end
   
   def from_genre
-    if params[:genre_ids].present?
-      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+    if @params[:genre_ids].present?
+        @movies = Movie.includes(:genres).where(genres:{id: @params[:genre_ids]})
     else
-      @movies = Movie.all
+        @movies = Movie.all
     end
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  # GET /movies/1
-  # GET /movies/1.json
-  def show
-    @order_item = current_order.order_items.new
-    genres = movie.genres
-    genre_ids = []
     
-    genres.each do |g|
-      genre_ids << [g.id]
+    if @movies.present?
+      respond_to do |format|
+        format.js
+      end
     end
-    @similar_movies = Movie.includes(:genres).where(genres:{id: genre_ids})
   end
 
-  # GET /movies/new
+  def show
+    @order_item, @similar_movies = Movies::ShowMovie.new(movie, current_order).call
+  end
+
   def new
   end
 
-  # GET /movies/1/edit
   def edit
   end
 
-  # POST /movies
-  # POST /movies.json
   def create
-
     respond_to do |format|
       if Movies::CreateMovie.new(movie_params).call
-        format.html { redirect_to root_path, notice: 'Movie was successfully created.' }
+        format.html { redirect_to movie, notice: 'Movie was successfully created.' }
         format.json { render :show, status: :created, location: movie }
       else
         format.html { render :new, notice: 'Movie was not created' }
@@ -56,8 +42,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /movies/1
-  # PATCH/PUT /movies/1.json
   def update
     respond_to do |format|
       if Movies::UpdateMovie.new(params[:id],movie_params).call
@@ -70,8 +54,6 @@ class MoviesController < ApplicationController
     end
   end
 
-  # DELETE /movies/1
-  # DELETE /movies/1.json
   def destroy
    Movies::DeleteMovie.new(params[:id]).call
     respond_to do |format|
@@ -80,9 +62,7 @@ class MoviesController < ApplicationController
     end
   end
   
-
   private
-    # Never trust parameters from the scary internet, only allow the white list through.
     def movie_params
       params.require(:movie).permit(:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [])
     end
