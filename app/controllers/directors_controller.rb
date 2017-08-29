@@ -1,28 +1,19 @@
 class DirectorsController < ApplicationController
-  
   expose :director
   expose :directors, ->{ Director.all.decorate }
-  
-  # GET /directors
-  # GET /directors.json
+
   def index
   end
 
-  # GET /directors/1
-  # GET /directors/1.json
   def show
   end
 
-  # GET /directors/new
   def new
   end
 
-  # GET /directors/1/edit
   def edit
   end
 
-  # POST /directors
-  # POST /directors.json
   def create
     respond_to do |format|
       if director.save
@@ -35,8 +26,6 @@ class DirectorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /directors/1
-  # PATCH/PUT /directors/1.json
   def update
     respond_to do |format|
       if director.update(director_params)
@@ -49,8 +38,6 @@ class DirectorsController < ApplicationController
     end
   end
 
-  # DELETE /directors/1
-  # DELETE /directors/1.json
   def destroy
     director.destroy
     respond_to do |format|
