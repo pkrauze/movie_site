@@ -29,10 +29,11 @@
     
     = link_to root_path do
       %div.logo
-    
-  %div.right-side
-    =link_to notifications_path, class:"fa fa-bell",id:"notif-bell", aria: {hidden: true} do
-      -if notifications_number
-        %span.notif-counter= notifications_number
-    %div.cart
-      %span.cart-text= render 'layouts/cart_text'
+  
+  -if user_signed_in?  
+    %div.right-side
+      =link_to notifications_path, class:"fa fa-bell",id:"notif-bell", aria: {hidden: true} do
+        -if notifications_number
+          %span.notif-counter= notifications_number
+      %div.cart
+        %span.cart-text= render 'layouts/cart_text'
