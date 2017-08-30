@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   ratyrate_rater
   
+  validates :email, presence: true, uniqueness: true
+  
   def method_missing(name, *args, &block)
     self
   end

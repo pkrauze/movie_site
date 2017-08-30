@@ -7,5 +7,7 @@ class Notification < ActiveRecord::Base
   belongs_to :movie
   belongs_to :genre
   belongs_to :comment
+  
+  validates_presence_of :notification_type, :read
 
 end
