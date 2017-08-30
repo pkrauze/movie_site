@@ -7,10 +7,10 @@ class Ability
       can :manage, :all
     else
       if user.has_role? :moderator
-        can :manage, [Movies,Director,Comment]
+        can :manage, [Movie,Director,Comment]
       end
       
-      can :read, [Movies,Director,Comment]
+      can :read, [Movie,Director,Comment]
     end
     
     

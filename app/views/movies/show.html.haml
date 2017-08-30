@@ -29,9 +29,10 @@
           = image_tag(image.url)
 
       %div.movie-controls
-        =link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
-        =link_to 'Edit', edit_movie_path(movie)
-        =link_to 'Back', movies_path
+        - if can? :delete, Movie
+          =link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }
+        - if can? :edit, Movie
+          =link_to 'Edit', edit_movie_path(movie)
       
     %div.col-lg-6.comments-section
       %h2 All Comments

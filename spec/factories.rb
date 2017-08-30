@@ -3,7 +3,10 @@ FactoryGirl.define do
     email "test@gmail.com"
     password "foobar"
     password_confirmation "foobar"
-    add_role :admin
+    
+    factory :admin do
+        after(:create) {add_role(:admin)}
+    end
   end
   
   factory :movie do

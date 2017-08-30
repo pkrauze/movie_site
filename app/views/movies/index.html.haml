@@ -27,5 +27,5 @@
   %div.movies.flex-container
     = render partial: 'list_movies', locals: { movies: @movies }
 
-    - if user_signed_in? && (current_user.admin? || current_user.moderator?)
+    - if can? :create, Movie
       = link_to 'New Movie', new_movie_path

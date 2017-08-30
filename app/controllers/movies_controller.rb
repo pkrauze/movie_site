@@ -1,5 +1,6 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
+  load_and_authorize_resource
   expose :movie
 
   def index

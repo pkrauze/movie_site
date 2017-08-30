@@ -47,10 +47,29 @@ describe 'Movie CRUD actions' do
   end
 
   describe 'Not logged user is trying to' do
-    scenario 'create movie' do
+    scenario 'see create movie link' do
       visit '/'
       
-      expect(page).not_to have_content('New Movie')
+      expect(page).not_to have_selector(:link_or_button, 'New Movie')
+    end
+    
+    scenario 'create movie' do
+      visit '/movies/new'
+      
+      expect(page).not_to have_selector(:button, 'Create Movie')
+    end
+    
+    scenario 'see crud movie links' do
+      visit "/movies/#{movie.id}"
+      
+      expect(page).not_to have_selector(:link_or_button, 'Destroy')
+      expect(page).not_to have_selector(:link_or_button, 'Edit')
+    end
+    
+    scenario 'edit movie' do
+      visit "/movies/#{movie.id}/edit"
+      
+      have_selector(:link_or_button, 'Update Movie')
     end
   end
 end
