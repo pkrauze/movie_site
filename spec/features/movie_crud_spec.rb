@@ -13,6 +13,7 @@ describe 'Movie CRUD actions' do
     end
     
     scenario 'creating movie' do
+      before_count = Notification.count
       visit '/'
       click_link 'New Movie'
       fill_in 'movie[title]', with: 'Duszek'
@@ -24,9 +25,8 @@ describe 'Movie CRUD actions' do
       select "Horror", from: "movie[genre_ids][]"
       page.attach_file('movie[covers][]', Rails.root + 'spec/fixtures/duszek.png')
   
-      click_button 'Create Movie'
-      
-      expect(page).to have_content('Duszek')
+      expect{ click_button 'Create Movie'}.to change(Movie,:count).by(1)
+                                          .and change(Notification, :count).by(3)
     end
     
     scenario 'destroying movie' do
