@@ -1,12 +1,11 @@
 FactoryGirl.define do
   factory :user do
-    email "test@gmail.com"
+    email "testo@gmail.com"
     password "foobar"
     password_confirmation "foobar"
+    confirmed_at Time.now
     
-    factory :admin do
-        after(:create) {add_role(:admin)}
-    end
+    after(:create) {|user| user.add_role(:admin)}
   end
   
   factory :movie do

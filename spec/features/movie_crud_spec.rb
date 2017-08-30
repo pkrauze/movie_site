@@ -20,8 +20,8 @@ describe 'Movie CRUD actions' do
       fill_in 'Year', with: '2017'
       fill_in 'Time', with: '105'
       fill_in 'Price', with: '12'
-      select "Adam", from: "movie[director_id]"
-      select "Comedy", from: "movie[genre_ids][]"
+      select "David F.", from: "movie[director_id]"
+      select "Horror", from: "movie[genre_ids][]"
       page.attach_file('movie[covers][]', Rails.root + 'spec/fixtures/duszek.png')
   
       click_button 'Create Movie'
@@ -69,7 +69,7 @@ describe 'Movie CRUD actions' do
     scenario 'edit movie' do
       visit "/movies/#{movie.id}/edit"
       
-      have_selector(:link_or_button, 'Update Movie')
+      expect(page).to have_current_path(root_path)
     end
   end
 end
