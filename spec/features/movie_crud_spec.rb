@@ -26,7 +26,7 @@ describe 'Movie CRUD actions' do
       page.attach_file('movie[covers][]', Rails.root + 'spec/fixtures/duszek.png')
   
       expect{ click_button 'Create Movie'}.to change(Movie,:count).by(1)
-                                          .and change(Notification, :count).by(3)
+                                          .and change(Notification, :count).by(2)
     end
     
     scenario 'destroying movie' do

@@ -5,5 +5,4 @@ class Order < ActiveRecord::Base
   def total
     order_items.collect { |oi| oi.valid? ? (oi.unit_price) : 0 }.sum
   end
-    
 end

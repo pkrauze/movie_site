@@ -16,7 +16,7 @@ module Movies
           Notification.create(director_id: @params[:director_id], movie_id: movie_id, notification_type:"new movie", read: false).save
           
           @genres = @params[:genre_ids]
-          @genres.each do |g|
+          @genres.reject(&:blank?).each do |g|
             Notification.create(genre_id: g, movie_id: movie_id, notification_type:"new movie", read: false).save
           end
         end
