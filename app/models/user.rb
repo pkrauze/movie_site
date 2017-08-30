@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  
   has_many :subscribers
   has_many :notifications
   has_many :comments
@@ -16,5 +15,4 @@ class User < ActiveRecord::Base
   def method_missing(name, *args, &block)
     self
   end
-  
 end
