@@ -90,6 +90,9 @@ GEM
     execjs (2.7.0)
     factory_girl (4.8.0)
       activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     ffi (1.9.18)
     font-awesome-rails (4.7.0.2)
       railties (>= 3.2, < 5.2)
@@ -248,7 +251,7 @@ DEPENDENCIES
   decent_exposure (= 3.0.0)
   devise
   draper
-  factory_girl
+  factory_girl_rails
   font-awesome-rails
   friendly_id (~> 5.1.0)
   haml
