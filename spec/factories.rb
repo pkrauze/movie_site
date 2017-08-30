@@ -33,7 +33,5 @@ FactoryGirl.define do
     time 123
     price 12
     director_id 1
-    images { Rack::Test::UploadedFile.new(File.open("#{Rails.root}/spec/fixtures/duszek.png")) }
-    covers { Rack::Test::UploadedFile.new("#{Rails.root}/spec/fixtures/duszek.png") }
   end
 end
