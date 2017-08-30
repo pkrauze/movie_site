@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 feature 'Creating Updates' do
+  before do
+    @user = FactoryGirl.create( :user )
+  end
+  
   scenario 'can create movie' do
     visit '/'
     click_link 'New Movie'
