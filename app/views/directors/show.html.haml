@@ -9,7 +9,7 @@
       %span.title= director.fullname
       %span.subscribe= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id)
       -if user_signed_in?
-        %span.rating= rating_for movie, 'rating', cancel_place: 'right'
+        %span.rating= rating_for director, 'director_rating', cancel_place: 'right'
       %div.images
         - director.images.each do |image|
           = image_tag(image.url)
@@ -24,4 +24,4 @@
       %h2 Filmography
       %br
       - director.movies.each do |movie|
-        = render 'movie_row', movie: movie
+        = render 'movies/movie_row', movie: movie

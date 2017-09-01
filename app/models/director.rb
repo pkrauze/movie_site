@@ -5,6 +5,8 @@ class Director < ActiveRecord::Base
     has_many :subscribers
     has_many :notifications
     
+    ratyrate_rateable 'director_rating'
+    
     validates_presence_of :firstname, :lastname, :year_of_birth
     
     def fullname
