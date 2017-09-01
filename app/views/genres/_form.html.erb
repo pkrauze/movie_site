@@ -15,6 +15,9 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+  <div class="field">
+    <%= f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png" %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
