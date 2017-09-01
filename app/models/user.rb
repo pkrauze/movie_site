@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  after_create :assign_default_role
+  
   has_many :subscribers
   has_many :notifications
   has_many :comments
@@ -14,5 +16,9 @@ class User < ActiveRecord::Base
   
   def method_missing(name, *args, &block)
     self
+  end
+
+  def assign_default_role
+    self.add_role(:user) if self.roles.blank?
   end
 end
