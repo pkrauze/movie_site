@@ -1,5 +1,6 @@
 class SubscribersController < ApplicationController
   before_action :set_director,:set_genre, only: [:subscribe, :unsubscribe]
+  before_action :authenticate_user!
 
   def index
     @subscribers = current_user.subscribers

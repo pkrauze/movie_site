@@ -1,5 +1,7 @@
 class OrderItemsController < ApplicationController
-
+  before_action :authenticate_user!
+  load_and_authorize_resource
+  
   def create
     session[:order_id] = Cart::CreateOrder.new(current_order,order_item_params).call
     respond_to do |format|
