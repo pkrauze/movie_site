@@ -7,12 +7,13 @@
     
     %div.movie-info.col-lg-9
       %span.title= director.fullname
-      %span.subscribe= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id)
+      %ul
+        - if !sub_director_exist(current_user.id, director.id)
+          %li.subscribe.btn.btn-primary= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id)
+        - else
+          %li.unsubscribe.btn.btn-primary= link_to 'Unsubscribe', subscribers_unsubscribe_path(director_id: director.id)
       -if user_signed_in?
         %span.rating= rating_for director, 'director_rating', cancel_place: 'right'
-      %div.images
-        - director.images.each do |image|
-          = image_tag(image.url)
 
       %div.movie-controls
         - if can? :delete, Director
@@ -20,8 +21,9 @@
         - if can? :edit, Director
           =link_to 'Edit', edit_director_path(director)
 
-    %div.col-lg-6.other-movies
+    %div.col-lg-12.filmography
       %h2 Filmography
       %br
-      - director.movies.each do |movie|
-        = render 'movies/movie_row', movie: movie
+      %div.flex-container
+        - director.movies.each do |movie|
+          = render 'movies/movie_row', movie: movie
