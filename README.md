@@ -32,7 +32,7 @@ Movie site created by me to develop my RoR skills.
 #### DB
 * 'pg'
 
-##### Images Upload
+#### Images Upload
 * 'carrierwave'
 * 'mini_magick'
 
