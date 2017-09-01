@@ -1,0 +1,4 @@
+%div.top-bar
+%div.movies.flex-container
+  - genres.each do |genre|
+    = render 'genre_row', genre: genre

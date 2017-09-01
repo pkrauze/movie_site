@@ -1,0 +1,3 @@
+%div.movie
+  %div.cover= link_to image_tag(genre.images.first.url), genre if genre.images.first.present?
+  %div.title= link_to genre.name, genre
