@@ -1,24 +1,71 @@
+![alt text](http://i.imgur.com/Q89kW5u.png)
+# Movie Site
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+Movie site created by me to develop my RoR skills.
 
+## Features
 
-Welcome to your Rails project on Cloud9 IDE!
+* Add/Edit/Delete Movie with cover images and screenshots
+* Add/Edit/Delete Director with image
+* Add/Edit/Delete Genre with image
+* Allow adding multiple genres to movie
+* Implemented admin, moderator, user roles
+* Allow logged user to add to cart his favourite movie
+* Allow logged user to subscribe his favourite directors
+* The user gets a notification whenever a movie created by his subscribed director is added
+* Allow logged user to subscribe his favourite genres
+* The user gets a notification whenever a movie from his subscribed genre is added
+* Allow logged user to comment and rate movie
+* The user gets a notification whenever a comment created by him is commented by another user
+* Allow user to filter movies by one or multiple genres (page is reloading partial with ajax)
+* List similar movies on movie show page
 
-To get started, just do the following:
+## Used Gems
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
+#### Styling
+* 'font-awesome-rails'
+* 'jquery-turbolinks'
+* 'bootstrap-sass' - styling
+* 'ratyrate'
+* 'haml'
+* 'bootstrap-multiselect_rails'
 
-Happy coding!
-The Cloud9 IDE team
+#### DB
+* 'pg'
 
+#### Images Upload
+* 'carrierwave'
+* 'mini_magick'
 
-## Support & Documentation
+#### Authentication and Authorization
+* 'devise'
+* 'rolify'
+* 'cancancan'
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+#### Testing
+* 'rspec-rails'
+* 'capybara'
+* 'factory_girl_rails'
+
+#### Ruby
+* 'pry'
+
+#### Other
+* 'decent_exposure', '3.0.0'
+* 'draper'
+* 'friendly_id', '~> 5.1.0'
+
+## Web Design
+
+Front web design created by [Caler Edwards](https://www.youtube.com/channel/UCfzOLBT7jyHFcaTgwmnttog)
+in [video](https://www.youtube.com/watch?v=fXKZxP5qDd0)
+
+## Project created with
+```
+ ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
+'  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
+|  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
+'  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
+ `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
+----------------------------------------------------------------- 
+```
