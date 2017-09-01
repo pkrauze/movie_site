@@ -1,0 +1,27 @@
+%div.movie-show-page
+  %div.top-bar
+  
+  %div.movie-show
+    %div.movie-cover.col-lg-3
+      = image_tag(director.images.first.url, alt: "#{director.fullname} Cover") if director.images.present?
+    
+    %div.movie-info.col-lg-9
+      %span.title= director.fullname
+      %span.subscribe= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id)
+      -if user_signed_in?
+        %span.rating= rating_for movie, 'rating', cancel_place: 'right'
+      %div.images
+        - director.images.each do |image|
+          = image_tag(image.url)
+
+      %div.movie-controls
+        - if can? :delete, Director
+          =link_to 'Destroy', director, method: :delete, data: { confirm: 'Are you sure?' }
+        - if can? :edit, Director
+          =link_to 'Edit', edit_director_path(director)
+
+    %div.col-lg-6.other-movies
+      %h2 Filmography
+      %br
+      - director.movies.each do |movie|
+        = render 'movie_row', movie: movie
