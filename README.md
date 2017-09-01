@@ -1,3 +1,4 @@
+![alt text](http://i.imgur.com/Q89kW5u.png)
 # Movie Site
 
 Movie site created by me to develop my RoR skills.
