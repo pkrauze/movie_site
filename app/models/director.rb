@@ -1,4 +1,6 @@
 class Director < ActiveRecord::Base
+    before_destroy :remove_image_file
+
     mount_uploaders :images, ImageUploader
     
     has_many :movies
@@ -11,5 +13,9 @@ class Director < ActiveRecord::Base
     
     def fullname
       self.firstname + " " + self.lastname
+    end
+    
+    def remove_image_file
+      FileUtils.rm_rf("#{Rails.root}/public/uploads/director/images/#{self.id}")
     end
 end
