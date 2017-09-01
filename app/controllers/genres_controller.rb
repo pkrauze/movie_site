@@ -1,4 +1,6 @@
 class GenresController < ApplicationController
+  before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
+  load_and_authorize_resource
   expose :genre
   expose :genres,-> {Genre.all}
 
