@@ -235,8 +235,11 @@ $menu-width: 300px;
     padding-bottom: 10px;
   }
   
-  .movie .cover a img {
+  .movie .cover {
     width: 70%;
     height: auto;
+  }
+  .movie .cover a img {
+    width: 120%;
   }
 }

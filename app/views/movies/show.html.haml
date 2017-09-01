@@ -49,5 +49,6 @@
     %div.col-lg-6.other-movies
       %h2 Similar Movies
       %br
-      - @similar_movies.each do |movie|
-        = render 'movie_row', movie: movie
+      %div.flex-container
+        - @similar_movies.each do |movie|
+          = render 'movie_row', movie: movie
