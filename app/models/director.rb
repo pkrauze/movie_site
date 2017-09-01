@@ -1,4 +1,6 @@
 class Director < ActiveRecord::Base
+    mount_uploaders :images, ImageUploader
+    
     has_many :movies
     has_many :subscribers
     has_many :notifications

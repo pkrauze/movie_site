@@ -1,6 +1,6 @@
 class DirectorsController < ApplicationController
   expose :director
-  expose :directors, ->{ Director.all.decorate }
+  expose :directors, ->{ Director.all }
 
   def index
   end
@@ -49,6 +49,6 @@ class DirectorsController < ApplicationController
   private
   
   def director_params
-    params.require(:director).permit(:firstname,:lastname,:year_of_birth)
+    params.require(:director).permit(:firstname,:lastname,:year_of_birth, images: [])
   end
 end
