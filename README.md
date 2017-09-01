@@ -7,6 +7,7 @@ Movie site created by me to develop my RoR skills.
 * Add/Edit/Delete Movie with cover images and screenshots
 * Add/Edit/Delete Director with image
 * Add/Edit/Delete Genre with image
+* Allow adding multiple genres to movie
 * Implemented admin, moderator, user roles
 * Allow logged user to add to cart his favourite movie
 * Allow logged user to subscribe his favourite directors
