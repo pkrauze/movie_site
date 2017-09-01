@@ -1,3 +1,8 @@
 %div.movie
   %div.cover= link_to image_tag(genre.images.first.url), genre if genre.images.first.present?
-  %div.title= link_to genre.name, genre
+  %span.title= link_to genre.name, genre
+  %span{style:"float:right"}
+    - if !sub_genre_exist(current_user.id, genre.id)
+      = link_to 'Subscribe', subscribers_subscribe_path(genre_id: genre.id), class:"btn btn-primary"
+    - else
+      = link_to 'Unsubscribe', subscribers_unsubscribe_path(genre_id: genre.id), class:"btn btn-primary"
