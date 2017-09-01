@@ -8,8 +8,10 @@ class Ability
     else
       if user.has_role? :moderator
         can :manage, [Movie,Director,Comment]
+      end
       if user.has_role? :user
         can :manage, [OrderItem, Subscriber]
+      end
       
       can :read, [Movie,Director,Comment]
     end
