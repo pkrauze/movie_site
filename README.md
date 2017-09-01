@@ -45,6 +45,11 @@ Movie site created by me to develop my RoR skills.
 * 'draper'
 * 'friendly_id', '~> 5.1.0'
 
+#### Testing
+* 'rspec-rails'
+* 'capybara'
+* 'factory_girl_rails'
+
 #### Ruby
 * 'pry'
 
