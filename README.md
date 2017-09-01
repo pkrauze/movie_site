@@ -40,11 +40,6 @@ Movie site created by me to develop my RoR skills.
 * 'rolify'
 * 'cancancan'
 
-#### Controllers
-* 'decent_exposure', '3.0.0'
-* 'draper'
-* 'friendly_id', '~> 5.1.0'
-
 #### Testing
 * 'rspec-rails'
 * 'capybara'
@@ -52,6 +47,11 @@ Movie site created by me to develop my RoR skills.
 
 #### Ruby
 * 'pry'
+
+#### Other
+* 'decent_exposure', '3.0.0'
+* 'draper'
+* 'friendly_id', '~> 5.1.0'
 
 ## Web Design
 
