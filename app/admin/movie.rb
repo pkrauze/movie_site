@@ -4,8 +4,22 @@ ActiveAdmin.register Movie do
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
 	permit_params :titile, :desc, :year, :time, :directors, :price, :images, :covers, :slug
+
+	preserve_default_filters!
+	filter :director , :as => :select, :collection => Director.all.map(&:fullname)
 #
 # or
+	index do
+		column :id
+		column :title
+		column :desc
+		column :year
+		column :time
+		column :director do |d|
+			director = Director.find(d.director_id).fullname
+		end
+		column :price
+	end
 #
 # permit_params do
 #   permitted = [:permitted, :attributes]
