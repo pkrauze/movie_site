@@ -335,6 +335,7 @@ DEPENDENCIES
   pry
   pundit
   rails
+  ransack
   ratyrate
   rolify
   rspec-rails

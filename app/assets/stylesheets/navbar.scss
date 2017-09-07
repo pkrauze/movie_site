@@ -44,6 +44,43 @@ $menu-width: 300px;
   height:100%;
   float:right;
   text-align:right;
+
+  .search-form {
+    width: 300px;
+    top: 30px;
+    position: absolute;
+    left: 340px;
+
+    form input {
+      border-radius: 100px;
+      height: 30px;
+      background: #333333;
+      border: black;
+      color: white;
+      padding: 20px;
+    }
+
+    input:focus {
+      outline: none;
+    }
+
+    form button {
+      background: #333333;
+      width: 50px;
+      height: 40px;
+      border-radius: 30px;
+      text-align: center;
+      line-height: 30px;
+      vertical-align: middle;
+      padding: 0px;
+      box-shadow: none;
+      border: 0;
+
+      i {
+        font-size: 20px;
+      }
+    }
+  }
 }
 
 #notif-bell {
