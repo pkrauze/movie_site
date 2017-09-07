@@ -11,5 +11,14 @@ permit_params :firstname, :lastname, :year_of_birth, :images
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
+	form do |f|
+    f.inputs "Details" do
+      f.input :firstname
+      f.input :lastname
+      f.input :year_of_birth
+    end
+    f.actions
+  end
+
 
 end
