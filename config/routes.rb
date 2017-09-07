@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :genres
   resources :notifications
 
@@ -7,21 +9,12 @@ Rails.application.routes.draw do
                                         as: :link_through
 
   get "/fetch_movies" => 'movies#from_genre', as: 'fetch_movies'
-  
-  get 'subscribers/index'
-
-  get 'subscribers/subscribe'
-
-  get 'subscribers/unsubscribe'
 
   resources :subscribers
 
   post '/rate' => 'rater#create', :as => 'rate'
   
   devise_for :users
-  
-  get 'comments/new'
-  get 'comments/create'
 
   resources :movies do
     resources :comments
