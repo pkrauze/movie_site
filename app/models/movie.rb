@@ -3,6 +3,9 @@ class Movie < ActiveRecord::Base
     
   mount_uploaders :images, ImageUploader
   mount_uploaders :covers, CoverUploader
+  serialize :images, JSON
+  serialize :covers, JSON
+
   extend FriendlyId
   friendly_id :title, use: [:slugged, :finders]
 

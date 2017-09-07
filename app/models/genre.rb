@@ -6,7 +6,8 @@ class Genre < ActiveRecord::Base
   has_many :notifications
   
   mount_uploaders :images, ImageUploader
-  
+  serialize :images, JSON
+    
   extend FriendlyId
   friendly_id :name, use: [:slugged, :finders]
   

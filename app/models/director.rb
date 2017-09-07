@@ -2,7 +2,8 @@ class Director < ActiveRecord::Base
     before_destroy :remove_image_file
 
     mount_uploaders :images, ImageUploader
-    
+    serialize :images, JSON
+        
     has_many :movies
     has_many :subscribers
     has_many :notifications
