@@ -1,2 +1,3 @@
 - @movies.each do |movie|
     = render 'movie_row', movie: movie, order_item: @order_item
+= paginate @movies

@@ -1,6 +1,8 @@
 class Movie < ActiveRecord::Base
   before_destroy :remove_image_file
-    
+
+  paginates_per 10
+      
   mount_uploaders :images, ImageUploader
   mount_uploaders :covers, CoverUploader
   serialize :images, JSON

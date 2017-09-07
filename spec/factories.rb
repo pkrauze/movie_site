@@ -29,8 +29,10 @@ FactoryGirl.define do
     lastname "Sandler"
   end
   
+  sequence(:title) { |n| "Duszek#{n}" }
+
   factory :movie do
-    title "Duszek"
+    title
     desc "Movie about funny ghost"
     year 2012
     time 123

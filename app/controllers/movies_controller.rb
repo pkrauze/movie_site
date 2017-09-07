@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
   expose :movie
 
   def index
-    @movies = Movie.all
+    @movies = Movie.page(params[:page])
   end
   
   def from_genre

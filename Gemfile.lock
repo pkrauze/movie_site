@@ -329,6 +329,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
+  kaminari
   mini_magick
   mysql2
   pry
