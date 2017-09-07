@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 class DeviseCreateUsers < ActiveRecord::Migration[5.1]
-=======
-class DeviseCreateUsers < ActiveRecord::Migration
->>>>>>> 82221bfc01a0eceaad5c11677d9d799418fc7cad
   def change
     create_table :users do |t|
       ## Database authenticatable
