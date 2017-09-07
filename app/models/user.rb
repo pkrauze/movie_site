@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   ratyrate_rater
   
   validates :email, presence: true, uniqueness: true
-  
+
   def method_missing(name, *args, &block)
     self
   end
