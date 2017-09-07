@@ -9,9 +9,9 @@ class MoviesController < ApplicationController
   
   def from_genre
     if params[:genre_ids].present?
-      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]})
+      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]}).page(params[:page])
     else
-      @movies = Movie.all
+      @movies = Movie.page(params[:page])
     end
     respond_to do |format|
       format.js

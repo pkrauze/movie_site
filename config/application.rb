@@ -27,5 +27,8 @@ module Workspace
       require "pry"
       config.console = Pry
     end
+    config.generators do |g|
+      g.template_engine :haml
+    end
   end
 end
