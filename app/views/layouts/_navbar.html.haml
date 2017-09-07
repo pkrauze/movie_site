@@ -17,7 +17,7 @@
       %div.cart
         %span.cart-text= render 'layouts/cart_text'
       %div.search-form
-        = search_form_for @q do |f|
+        = search_form_for @search do |f|
           = f.search_field :title_cont
           = button_tag do
             %i.fa.fa-search

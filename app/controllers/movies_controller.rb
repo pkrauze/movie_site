@@ -4,8 +4,8 @@ class MoviesController < ApplicationController
   expose :movie
 
   def index
-    @q = Movie.ransack(params[:q])
-    @movies = @q.result.page(params[:page])
+    @search = Movie.ransack(params[:q])
+    @movies = @search.result.page(params[:page])
   end
   
   def from_genre
