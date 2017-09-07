@@ -11,6 +11,7 @@ ActiveAdmin.register User do
 		column :email
 		column :last_sign_in_at
 		column :created_at
+		actions
 	end
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
