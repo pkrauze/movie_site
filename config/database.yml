@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SQLite version 3.x
 #   gem install sqlite3-ruby (not necessary on OS X Leopard)
 development:
@@ -20,3 +21,24 @@ production:
   database: db/production.sqlite3
   pool: 5
   timeout: 5000
+=======
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  username: user
+  password: password
+  host: 127.0.0.1
+  port: 3306
+
+development:
+  <<: *default
+  database: development_db_name
+
+test:
+  <<: *default
+  database: test_db_name
+
+production:
+  <<: *default
+  database: production_db_name
+>>>>>>> 82221bfc01a0eceaad5c11677d9d799418fc7cad
