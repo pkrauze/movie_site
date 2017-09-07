@@ -2,7 +2,15 @@ ActiveAdmin.register Genre do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-permit_params :name, :slug, :images
+	remove_filter :movies, :subscribers, :notifications, :slug, :images
+
+	permit_params :name, :slug, :images
+
+	index do
+		column "#", :id
+		column :name
+		column :created_at
+	end
 #
 # or
 #
