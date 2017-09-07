@@ -1,5 +1,5 @@
 class AddCoversToMovies < ActiveRecord::Migration
   def change
-    add_column :movies, :covers, :json
+    add_column :movies, :covers, :string
   end
 end
