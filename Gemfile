@@ -40,6 +40,7 @@ gem 'pry'
 gem 'friendly_id', '~> 5.1.0'
 gem "font-awesome-rails"
 gem 'jquery-turbolinks'
+gem 'ransack'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
