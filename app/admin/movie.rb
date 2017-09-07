@@ -19,6 +19,7 @@ ActiveAdmin.register Movie do
 			director = Director.find(d.director_id).fullname
 		end
 		column :price
+		actions
 	end
 #
 # permit_params do
