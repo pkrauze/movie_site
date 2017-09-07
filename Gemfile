@@ -25,8 +25,6 @@ gem 'activeadmin'
 gem 'pundit'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sqlite3'
-=======
-
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mysql2'
 gem 'decent_exposure', '3.0.0'
