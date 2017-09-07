@@ -1,0 +1,27 @@
+= form_for( director) do |f|
+  - if director.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(director.errors.count, "error")
+        prohibited this director from being saved:
+      %ul
+        - @director.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :firstname
+    %br/
+    = f.text_field :firstname
+  .field
+    = f.label :lastname
+    %br/
+    = f.text_field :lastname
+  .field
+    = f.label :year_of_birth
+    %br/
+    = f.number_field :year_of_birth
+  .field
+    = f.label :images
+    %br/
+    = f.file_field :images, multiple: true, accept: "image/jpeg, image/jpg, image/gif, image/png"
+  .actions
+    = f.submit

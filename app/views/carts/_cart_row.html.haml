@@ -1,0 +1,15 @@
+%div
+  .row.cart-row
+    .col-xs-8
+      %h4= movie.title
+    .col-xs-4
+      = form_for order_item, remote: true do |f|
+        .row
+          .col-xs-4
+            = f.hidden_field :movie_id, value: movie.id
+          .col-xs-8.text-right
+            .btn-group
+              = link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.movie.title}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" }
+        %h4.text-right
+          Price:
+          %span{:style => "color: green"}= number_to_currency order_item.total_price

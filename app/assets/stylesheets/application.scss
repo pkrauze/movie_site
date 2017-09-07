@@ -1,0 +1,49 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-multiselect';
+@import "font-awesome";
+
+$black: #292929;
+$grey: #333333;
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $black;
+  color: #f2f2f2;
+  font-family: 'Montserrat', sans-serif;
+}
+
+input, select, textarea{
+    color: $black;
+}
+
+a:hover,
+a:visited,
+a:active,
+a:focus,
+a:link {
+  color: inherit !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+.content {
+  transition: all .3s ease;
+}

@@ -1,0 +1,4 @@
+%div.movie
+  %div.cover= link_to image_tag(director.images.first.url), director if director.images.first.present?
+  - if action_name == "index"
+    %div.title= link_to director.fullname, director

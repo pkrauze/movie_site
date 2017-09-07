@@ -1,0 +1,31 @@
+%div.movie-page
+  %div.top-bar
+    %ul.list
+      %li
+        = link_to 'All', movies_path
+      %li.dropdown
+        %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"}
+          Release Date
+          %b.caret
+        %ul.sort-dropdown.dropdown-menu{"role" => "menu"}
+          %li Release Date
+          %li Most Popular
+          %li Most Viewed
+          %li Best Rated
+      %li.dropdown
+        %a.dropdown-toggle{:href => "#", "role" => "button", "data-toggle" => "dropdown", "data-target" => "#"}
+          Filters
+          %b.caret
+        %ul.filter-dropdown.dropdown-menu{"role" => "menu"}
+          = form_tag url_for(controller: 'movies', action: 'from_genre'), :method => :get, remote: true do
+            - genres.each do |genre|
+              %li
+                = check_box_tag 'genre_ids[]', genre.id
+                = genre.name
+            = submit_tag 'Filter', name: nil
+      
+  %div.movies.flex-container
+    = render partial: 'list_movies', locals: { movies: @movies }
+
+    - if can? :create, Movie
+      = link_to 'New Movie', new_movie_path

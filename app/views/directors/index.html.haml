@@ -1,0 +1,4 @@
+%div.top-bar
+%div.movies.flex-container
+  - directors.each do |director|
+    = render 'director_row', director: director
