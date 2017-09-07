@@ -1,9 +1,5 @@
 source 'https://rubygems.org'
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 82221bfc01a0eceaad5c11677d9d799418fc7cad
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails'
 # Use sqlite3 as the database for Active Record
@@ -24,7 +20,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
-<<<<<<< HEAD
+
 gem 'activeadmin'
 gem 'pundit'
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -33,7 +29,6 @@ gem 'sqlite3'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'mysql2'
->>>>>>> 82221bfc01a0eceaad5c11677d9d799418fc7cad
 gem 'decent_exposure', '3.0.0'
 gem 'carrierwave'
 gem "mini_magick"
