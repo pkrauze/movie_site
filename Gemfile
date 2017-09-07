@@ -21,6 +21,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'activeadmin'
 gem 'pundit'
+gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sqlite3'
 gem 'bootstrap-sass', '~> 3.3.6'
