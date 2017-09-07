@@ -1,10 +1,9 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
+  before_action :set_search, :set_movie
   load_and_authorize_resource
-  expose :movie
 
   def index
-    @search = Movie.ransack(params[:q])
     @movies = @search.result.page(params[:page])
   end
   
@@ -20,7 +19,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @order_item, @similar_movies = Movies::ShowMovie.new(movie, current_order).call
+    @order_item, @similar_movies = Movies::ShowMovie.new(@movie, current_order).call
   end
 
   def new
@@ -64,5 +63,13 @@ class MoviesController < ApplicationController
   private
     def movie_params
       params.require(:movie).permit(:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [])
+    end
+
+    def set_search
+      @search = Movie.ransack(params[:q])
+    end
+
+    def set_movie
+      @movie = Movie.find_by_slug(params[:id])
     end
 end

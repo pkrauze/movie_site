@@ -23,11 +23,12 @@
                 = check_box_tag 'genre_ids[]', genre.id
                 = genre.name
             = submit_tag 'Filter', name: nil
-      %li.advanced-search
-        %i.fa.fa-search Advanced Search
-        %div.advsearch
-          = render 'top_bar_search'  
-      
+      - if controller_name == 'movies' && action_name == 'index'
+        %li.advanced-search
+          %i.fa.fa-search Advanced Search
+          %div.advsearch
+            = render 'top_bar_search'  
+        
   %div.movies.flex-container
     = render partial: 'list_movies', locals: { movies: @movies }
 

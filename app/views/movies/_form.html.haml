@@ -1,11 +1,11 @@
 %div.form
-  = form_for(movie) do |f|
-    - if movie.errors.any?
+  = form_for(@movie) do |f|
+    - if @movie.errors.any?
       %div#error_explanation
-        %h2= pluralize(movie.error.count,"error") + " prohibited this movie from being saved:"
+        %h2= pluralize(@movie.error.count,"error") + " prohibited this movie from being saved:"
         
         %ul
-          - movie.errors.full_messages.each do |message|
+          - @movie.errors.full_messages.each do |message|
             %li= message
      
     %div.form-group
