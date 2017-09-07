@@ -1,7 +1,7 @@
 class Movie < ActiveRecord::Base
   before_destroy :remove_image_file
 
-  paginates_per 10
+  paginates_per 1
       
   mount_uploaders :images, ImageUploader
   mount_uploaders :covers, CoverUploader
