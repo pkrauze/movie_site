@@ -17,7 +17,7 @@
       %div.cart
         %span.cart-text= render 'layouts/cart_text'
       %div.search-form
-        = search_form_for @search do |f|
+        = search_form_for @search, url: search_movies_path, method: :post do |f|
           = f.search_field :title_cont
           = button_tag do
             %i.fa.fa-search

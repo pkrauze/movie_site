@@ -3,7 +3,7 @@ $grey: #333333;
 $menu-width: 300px;
 
 .top-bar {
-  height: auto;
+  height: 50px;
   width: 100%;
   background-color: $grey;
   padding:15px;
@@ -16,6 +16,33 @@ $menu-width: 300px;
   form input {
     width: 100px;
   }
+}
+
+.search-active {
+  height: 400px;
+}
+
+.advsearch {
+  width: 100%;
+  border: 1px solid red;
+  opacity: 0;
+  border-top: 2px solid white;
+  padding-top: 30px;
+  transition: all .1s linear;
+
+  form input {
+    border-radius: 100px;
+    height: 30px;
+    background: $black;
+    border: black;
+    color: white;
+    padding: 20px;
+    width: 200px;
+  }
+}
+
+.advsearch-active {
+  opacity: 1;
 }
 
 .movies {

@@ -1,20 +1,19 @@
-%div.row
-	= search_form_for @search do |f|
-		%div.form-group
-			= f.label :title
-			= f.text_field :title_cont
-		%div.form-group	
-			= f.label :year_gteq
-			= f.text_field :year_gteq, class: "radius", placeholder: "Minimum Year"
-		%div.form-group
-			= f.label :year_lteq
-			= f.text_field :year_lteq, class: "radius", placeholder: "Maximum Year"
-		%div.form-group
-			= f.select :director_id_eq, options_from_collection_for_select(Director.all, "id", "fullname", @q.director_id_eq)
-		%div.form-group
-			= f.label :price_gteq
-			= f.text_field :price_gteq, class: "radius", placeholder: "Minimum price"
-		%div.form-group
-			= f.label :price_lteq
-			= f.text_field :price_lteq, class: "radius", placeholder: "Maximum price"
-		= f.submit "Search"
+= search_form_for @search, url: search_movies_path, method: :post do |f|
+	%div.form-group
+		= f.label :title
+		= f.text_field :title_cont
+	%div.form-group	
+		= f.label :year_gteq
+		= f.text_field :year_gteq, class: "radius", placeholder: "Minimum Year"
+	%div.form-group
+		= f.label :year_lteq
+		= f.text_field :year_lteq, class: "radius", placeholder: "Maximum Year"
+	%div.form-group
+		= f.select :director_id_eq, options_from_collection_for_select(Director.all, "id", "fullname", @search.director_id_eq)
+	%div.form-group
+		= f.label :price_gteq
+		= f.text_field :price_gteq, class: "radius", placeholder: "Minimum price"
+	%div.form-group
+		= f.label :price_lteq
+		= f.text_field :price_lteq, class: "radius", placeholder: "Maximum price"
+	= f.submit "Search"

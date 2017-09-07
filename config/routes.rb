@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :movies do
     resources :comments
+    collection { post :search, to: 'movies#index'}
   end
   
   resources :comments do
