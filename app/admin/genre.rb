@@ -10,6 +10,7 @@ ActiveAdmin.register Genre do
 		column "#", :id
 		column :name
 		column :created_at
+		actions
 	end
 #
 # or
