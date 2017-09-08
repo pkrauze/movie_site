@@ -1,16 +1,14 @@
 require 'rails_helper'
+include Warden::Test::Helpers
 
 describe 'Movie CRUD actions' do
-  let(:user) { user = FactoryGirl.create(:user) }
-  let(:movie) { movie = FactoryGirl.create(:movie) }
+  let(:user) { create(:user) }
+  let(:movie) { create(:movie) }
   
   describe 'Logged user as admin is' do
-    before do
-      visit '/users/sign_in'
-      fill_in "Email",    with: user.email
-      fill_in "Password", with: user.password
-      click_button "Log in"
-    end
+    before { login_as(user, :scope => :user) }
+
+    after { Warden.test_reset! }
     
     scenario 'creating movie' do
       before_count = Notification.count
