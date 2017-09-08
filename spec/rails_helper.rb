@@ -1,4 +1,5 @@
 require 'support/spec_test_helper.rb'
+require 'support/wait_for_ajax.rb'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)

@@ -28,7 +28,6 @@ describe "Genre requests" do
 		it 'allows to Unsubscribe' do
 			visit '/genres'
 			click_link 'Subscribe'
-			reload_page
 			
 			expect{ click_link 'Unsubscribe'}.to change(Subscriber,:count).by(1)
 		end
