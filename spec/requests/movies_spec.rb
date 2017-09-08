@@ -6,7 +6,7 @@ describe 'Movie requests' do
 
 		it "displays 10 movies per page" do
 			visit(root_path)
-			expect(page).to have_selector('movie', count: 10)
+			expect(page).to have_content('Duszek10')
 		end
 	end	
 end
