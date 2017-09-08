@@ -1,10 +1,24 @@
 require 'rails_helper'
 
-RSpec.describe "Genres", type: :request do
-  describe "GET /genres" do
-    it "works! (now write some real specs)" do
-      get genres_path
-      expect(response).to have_http_status(200)
-    end
-  end
+include Warden::Test:Helpers
+
+describe "Genre requests" do
+	let(:genre) { create(:genre) }
+	let(:user) { create(:user) }
+
+	describe "When user is on genres page" do
+		it 'allows to see genres' do
+			visit(genres_path)
+
+			expect(page).to have_content(genre.name)
+		end
+	end
+
+	describe 'When user is logged in' do
+		before { login_as(:user, :scope => :user) }
+
+		it 'allows to subscribe genre' do
+
+		end
+	end
 end
