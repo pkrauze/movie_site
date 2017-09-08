@@ -14,9 +14,15 @@ FactoryGirl.define do
     password_confirmation "foobar"
     confirmed_at Time.now
     
+    trait :with_sub do
+      after(:create) do |user|
+        user.add_role(:admin)
+        create_list(:subscriber, 1, user: user)
+      end
+    end
+
     after(:create) do |user|
       user.add_role(:admin)
-      create_list(:subscriber, 1, user: user)
     end
   end
   
