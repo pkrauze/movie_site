@@ -6,3 +6,7 @@
       = link_to 'Subscribe', subscribe_path(genre_id: genre.id), class:"btn btn-primary"
     - else
       = link_to 'Unsubscribe', unsubscribe_path(genre_id: genre.id), class:"btn btn-primary"
+  - if can? :delete, Genre
+  	%p= link_to 'Destroy', genre, method: :delete, data: { confirm: 'Are you sure?' }
+  - if can? :edit, Genre
+  	%p= link_to 'Edit', edit_genre_path(genre)
