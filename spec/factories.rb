@@ -27,6 +27,7 @@ FactoryGirl.define do
   factory :director do
     firstname "Adam"
     lastname "Sandler"
+    year_of_birth 1975
   end
   
   sequence(:title) { |n| "Duszek#{n}" }
@@ -37,5 +38,6 @@ FactoryGirl.define do
     year 2012
     time 123
     price 12
+    director_id 1
   end
 end
