@@ -1,4 +1,6 @@
 %div.top-bar
 %div.movies.flex-container
-  - genres.each do |genre|
-    = render 'genre_row', genre: genre
+	- genres.each do |genre|
+		= render 'genre_row', genre: genre
+	-if can? :create, Genre
+		=link_to 'Create Genre', new_genre_path
