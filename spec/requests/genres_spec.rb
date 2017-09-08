@@ -29,7 +29,7 @@ describe "Genre requests" do
 			visit '/genres'
 			click_link 'Subscribe'
 			
-			expect{ click_link 'Unsubscribe'}.to change(Subscriber,:count).by(1)
+			expect{ click_link 'Unsubscribe'}.to change(Subscriber,:count).by(-1)
 		end
 
 		it 'allows to see admin links' do
@@ -47,9 +47,10 @@ describe "Genre requests" do
 		end
 
 		it 'allows to edit genre' do
-			visit '/genres'
+			visit "/genres/#{genre.id}"
 			click_link 'Edit'
-			fill_in 'Name', with: "Comedy"
+			fill_in 'genre[name]', with: "Comedy"
+			click_button "Update Genre"
 
 			expect(page).to have_content("Comedy")
 		end
@@ -57,7 +58,7 @@ describe "Genre requests" do
 		it 'allows to destroy genre' do
 			visit '/genres'
 
-			expect{ click_link 'Destroy'}.to change(Genre,:count).by(1)
+			expect{ click_link 'Destroy'}.to change(Genre,:count).by(-1)
 		end
 	end
 end
