@@ -32,6 +32,8 @@ describe "Genre requests" do
 
 		it 'allows to see admin links' do
 			visit(genres_path)
+
+			expect(page).to have_link('Edit').and have_link('Destroy')
 		end
 
 		it 'allows to create genre' do
