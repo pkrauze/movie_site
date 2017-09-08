@@ -9,9 +9,9 @@
       %span.title= director.fullname
       %ul
         - if !sub_director_exist(current_user.id, director.id)
-          %li.subscribe.btn.btn-primary= link_to 'Subscribe', subscribers_subscribe_path(director_id: director.id)
+          %li.subscribe.btn.btn-primary= link_to 'Subscribe', subscribe_path(director_id: director.id)
         - else
-          %li.unsubscribe.btn.btn-primary= link_to 'Unsubscribe', subscribers_unsubscribe_path(director_id: director.id)
+          %li.unsubscribe.btn.btn-primary= link_to 'Unsubscribe', unsubscribe_path(director_id: director.id)
       -if user_signed_in?
         %span.rating= rating_for director, 'director_rating', cancel_place: 'right'
 
