@@ -61,4 +61,39 @@ describe "Genre requests" do
 			expect{ click_link 'Destroy'}.to change(Genre,:count).by(-1)
 		end
 	end
+
+	describe "When user is not logged in" do
+		it "does not allow to see subscribing links" do
+			visit '/genres'
+
+			expect(page).not_to have_link('Subscribe')
+			expect(page).not_to have_link('Unsubscribe')
+		end
+
+		it "does not allow to create new genre" do
+			visit '/genres'
+
+			expect(page).not_to have_link('Create Genre')
+
+			visit '/genres/new'
+
+			expect(page).to have_current_path(root_path)
+		end
+
+		it "does not allow to edit genre" do
+			visit '/genres'
+
+			expect(page).not_to have_link('Edit')
+
+			visit "/genres/#{genre.id}/edit"
+
+			expect(page).to have_current_path(root_path)
+		end
+
+		it "does not allow to destroy genre" do
+			visit '/genres'
+
+			expect(page).not_to have_link('Destroy')
+		end
+	end
 end
