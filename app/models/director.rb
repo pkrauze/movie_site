@@ -14,7 +14,7 @@ class Director < ActiveRecord::Base
     validates_presence_of :firstname, :lastname, :year_of_birth
 
     extend FriendlyId
-    friendly_id :slug, use: [:slugged, :finders]
+    friendly_id :slug, use: :slugged
     
     def fullname
       self.firstname + " " + self.lastname

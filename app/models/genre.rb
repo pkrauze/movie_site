@@ -9,7 +9,7 @@ class Genre < ActiveRecord::Base
   serialize :images, JSON
     
   extend FriendlyId
-  friendly_id :name, use: [:slugged, :finders]
+  friendly_id :name, use: :slugged
   
   validates :name, presence: true, uniqueness: true
   

@@ -33,7 +33,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if Movies::CreateMovie.new(movie_params).call
         format.html { redirect_to @movie, notice: 'Movie was successfully created.' }
-        format.json { render :show, status: :created, location: movie }
+        format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, notice: 'Movie was not created' }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
@@ -45,7 +45,7 @@ class MoviesController < ApplicationController
     respond_to do |format|
       if Movies::UpdateMovie.new(params[:id],movie_params).call
         format.html { redirect_to @movie, notice: 'Movie was successfully updated.' }
-        format.json { render :show, status: :ok, location: movie }
+        format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit }
         format.json { render json: movie.errors, status: :unprocessable_entity }
