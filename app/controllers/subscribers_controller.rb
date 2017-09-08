@@ -11,11 +11,11 @@ class SubscribersController < ApplicationController
   def subscribe
     if params[:director_id]
       if Subscriptions::SubscribeDirector.new(current_user,@director.id).call
-        redirect_to :back
+        redirect_back(fallback_location: root_path)
       end
     elsif params[:genre_id]
       if Subscriptions::SubscribeGenre.new(current_user,@genre.id).call
-        redirect_to :back
+        redirect_back(fallback_location: root_path)
       end
     end
   end
@@ -23,11 +23,11 @@ class SubscribersController < ApplicationController
   def unsubscribe
     if params[:director_id]
       if Subscriptions::UnsubscribeDirector.new(current_user,@director.id).call
-        redirect_to :back
+        redirect_back(fallback_location: root_path)
       end
     elsif params[:genre_id]
       if Subscriptions::UnsubscribeGenre.new(current_user,@genre.id).call
-        redirect_to :back
+        redirect_back(fallback_location: root_path)
       end
     end
   end
