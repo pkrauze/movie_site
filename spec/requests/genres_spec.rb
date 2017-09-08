@@ -77,7 +77,7 @@ describe "Genre requests" do
 
 			visit '/genres/new'
 
-			expect(page).to have_current_path(root_path)
+			expect(page).to have_current_path('/users/sign_in')
 		end
 
 		it "does not allow to edit genre" do
