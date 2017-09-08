@@ -21,7 +21,7 @@ FactoryGirl.define do
   end
   
   factory :genre do
-    name "Horror"
+    name "Horror1"
   end
   
   factory :director do
@@ -37,6 +37,5 @@ FactoryGirl.define do
     year 2012
     time 123
     price 12
-    director_id 1
   end
 end

@@ -3,7 +3,9 @@ include Warden::Test::Helpers
 
 describe 'Movie CRUD actions' do
   let(:user) { create(:user) }
-  let(:movie) { create(:movie) }
+  let(:director ) { create(:director) }
+  let(:genre) { create(:genre) }
+  let(:movie) { create(:movie, director_id: director.id, genre_ids: genre.id) }
   
   describe 'Logged user as admin is' do
     before { login_as(user, :scope => :user) }
