@@ -5,7 +5,7 @@ module Movies
         end
         
         def call
-            Movie.new(@params).save
+            Movie.new(@params).save!
             create_notification
         end
         
