@@ -3,8 +3,8 @@ include Warden::Test::Helpers
 
 describe 'Movie requests' do
   let(:user) { create(:user) }
-  let(:director ) { create(:director) }
-  let(:genre) { create(:genre) }
+  let!(:director ) { create(:director) }
+  let!(:genre) { create(:genre) }
   let(:movie) { create(:movie, director_id: director.id, genre_ids: genre.id) }
   
   describe 'When user is logged in' do

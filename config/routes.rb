@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get "/fetch_movies" => 'movies#from_genre', as: 'fetch_movies'
 
   resources :subscribers
+  get "/subscribe" => 'subscribers#subscribe', as: 'subscribe'
+  get "/unsubscribe" => 'subscribers#unsubscribe', as: 'unsubscribe'
 
   post '/rate' => 'rater#create', :as => 'rate'
   

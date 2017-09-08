@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   before_action :authenticate_user!, only: [:new,:create,:update,:destroy]
-  before_action :set_search, :set_movie
+  before_action :set_movie
   load_and_authorize_resource
 
   def index
@@ -63,10 +63,6 @@ class MoviesController < ApplicationController
   private
     def movie_params
       params.require(:movie).permit(:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [])
-    end
-
-    def set_search
-      @search = Movie.ransack(params[:q])
     end
 
     def set_movie

@@ -3,6 +3,6 @@
   %span.title=  genre.name
   %span{style:"float:right"}
     - if !sub_genre_exist(current_user.id, genre.id)
-      = link_to 'Subscribe', subscribers_subscribe_path(genre_id: genre.id), class:"btn btn-primary"
+      = link_to 'Subscribe', subscribe_path(genre_id: genre.id), class:"btn btn-primary"
     - else
-      = link_to 'Unsubscribe', subscribers_unsubscribe_path(genre_id: genre.id), class:"btn btn-primary"
+      = link_to 'Unsubscribe', unsubscribe_path(genre_id: genre.id), class:"btn btn-primary"
