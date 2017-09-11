@@ -23,7 +23,7 @@ describe 'Movie requests' do
       fill_in 'Price', with: '12'
       select director.firstname, from: "movie[director_id]"
       select genre.name, from: "movie[genre_ids][]"
-      #page.attach_file('movie[covers][]', Rails.root + 'spec/fixtures/duszek.png')
+      page.attach_file('movie[covers][]', Rails.root + 'spec/fixtures/duszek.png')
   
       expect{ click_button 'Create Movie'}.to change(Movie,:count).by(1)
                                           .and change(Notification, :count).by(2)
