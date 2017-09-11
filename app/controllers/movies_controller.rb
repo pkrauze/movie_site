@@ -3,16 +3,12 @@ class MoviesController < ApplicationController
   before_action :set_movie
   load_and_authorize_resource
 
+  expose :movies, -> { set_movies }
+
   def index
-    @movies = @search.result.page(params[:page])
   end
   
   def from_genre
-    if params[:genre_ids].present?
-      @movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]}).page(params[:page])
-    else
-      @movies = Movie.page(params[:page])
-    end
     respond_to do |format|
       format.js
     end
@@ -68,5 +64,11 @@ class MoviesController < ApplicationController
 
     def set_movie
       @movie = Movie.find_by_slug(params[:id])
+    end
+
+    def set_movies
+    	movies = @search.result.page(params[:page])
+      movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]}).page(params[:page]) if params[:genre_ids].present?
+      movies
     end
 end

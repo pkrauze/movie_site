@@ -30,9 +30,9 @@
             = render 'top_bar_search'  
         
   %div.movies.flex-container
-    = render partial: 'list_movies', locals: { movies: @movies }
+    = render partial: 'list_movies', locals: { movies: movies }
 
     - if can? :create, Movie
       = link_to 'New Movie', new_movie_path
 
-  = paginate @movies,outer_window: 3
+  = paginate movies,outer_window: 3
