@@ -20,6 +20,7 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
+    @movie.build_director
   end
 
   def edit
@@ -59,7 +60,7 @@ class MoviesController < ApplicationController
   
   private
     def movie_params
-      params.require(:movie).permit(:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [], director_attributes: [:firstname,:lastname:year_of_birth])
+      params.require(:movie).permit(:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [], director_attributes: [:id, :firstname,:lastname, :year_of_birth])
     end
 
     def set_movie

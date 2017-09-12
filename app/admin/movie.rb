@@ -29,7 +29,7 @@ ActiveAdmin.register Movie do
       f.input :price
     end
     f.inputs "Director" do
-      f.semantic_fields_for :director, f.object.director || f.object.build_director do |d|
+      f.has_many :director do |d|
         d.input :firstname
         d.input :lastname
         d.input :year_of_birth
@@ -39,8 +39,10 @@ ActiveAdmin.register Movie do
   end
 
   controller do
+    nested_belongs_to :director, optional: true
+
     def permitted_params
-      params.permit movie: [:title, :desc, :year, :time, :directors, :price, :images, :covers, :slug, director_attributes: [:firstname, :lastname, :year_of_birth]]
+      params.permit :utf8, :authenticity_token, :commit, movie: [:title, :desc, :year, :time, :price, genre_ids: [], images: [], covers: [], director_attributes: [:id, :firstname,:lastname, :year_of_birth]]
     end
   end
 end
