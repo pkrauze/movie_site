@@ -68,6 +68,7 @@ class MoviesController < ApplicationController
     end
 
     def set_movies
+      @search = Movie.includes(:genres).search(params[:q])
     	movies = @search.result.page(params[:page])
       movies = Movie.includes(:genres).where(genres:{id: params[:genre_ids]}).page(params[:page]) if params[:genre_ids].present?
       movies
