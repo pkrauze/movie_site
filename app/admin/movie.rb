@@ -3,8 +3,6 @@ ActiveAdmin.register Movie do
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
-	permit_params :title, :desc, :year, :time, :directors, :price, :images, :covers, :slug, director_attributes: [:firstname, :lastname, :year_of_birth]
-
 	preserve_default_filters!
 	filter :director , :as => :select, :collection => Director.all.map(&:fullname)
 #
@@ -38,6 +36,12 @@ ActiveAdmin.register Movie do
 			end
 		end
 		f.actions
+	end
+
+	controller do
+  	def permitted_params
+  		params.permit movie: [:title, :desc, :year, :time, :directors, :price, :images, :covers, :slug, director_attributes: [:firstname, :lastname, :year_of_birth]]
+  	end
 	end
 
 end

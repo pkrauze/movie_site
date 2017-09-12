@@ -5,9 +5,7 @@ module Movies
         end
         
         def call
-            movie = Movie.new(@params)
-            movie.director.build_director @params[:director_attributes]
-            movie.save!
+            movie = Movie.new(@params).save!
             create_notification
         end
         
