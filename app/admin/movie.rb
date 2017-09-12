@@ -39,6 +39,20 @@ ActiveAdmin.register Movie do
     f.actions
   end
 
+  show do
+    attributes_table do
+      row :title
+      row :desc
+      row :year
+      row :time
+      row :price
+      row :director do |d|
+        director = Director.find(d.director_id).fullname
+      end
+    end
+    active_admin_comments
+  end
+
   controller do
     nested_belongs_to :director, optional: true
 
