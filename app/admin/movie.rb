@@ -27,6 +27,7 @@ ActiveAdmin.register Movie do
       f.input :year
       f.input :time
       f.input :price
+      f.input :director_id, :label => 'Director', :as => :select, :collection => Director.all.map(&:fullname)
     end
     f.inputs "Director" do
       f.has_many :director do |d|
@@ -42,7 +43,7 @@ ActiveAdmin.register Movie do
     nested_belongs_to :director, optional: true
 
     def permitted_params
-      params.permit :utf8, :authenticity_token, :commit, movie: [:title, :desc, :year, :time, :price, genre_ids: [], images: [], covers: [], director_attributes: [:id, :firstname,:lastname, :year_of_birth]]
+      params.permit :utf8, :authenticity_token, :commit, movie: [:title, :desc, :year, :time, :price, :director_id, genre_ids: [], images: [], covers: [], director_attributes: [:id, :firstname,:lastname, :year_of_birth]]
     end
   end
 end
